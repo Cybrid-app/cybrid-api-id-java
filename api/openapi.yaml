@@ -1,0 +1,391 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: support@cybrid.app
+    name: Cybrid Support
+  description: |
+    # Welcome
+
+    Welcome to the Cybrid platform; enabling turnkey crypto banking services!
+
+    In these documents, you will find information on the operations provided by our platform, as well as details on how our REST API operates more generally.
+
+    Our complete set of APIs allows you to manage all your resources: your Organization, your banks and your identities. The complete set of APIs can be found on the following pages:
+
+    | API                                                            | Description                  |
+    |----------------------------------------------------------------|------------------------------|
+    | [Organization API](https://organization.demo.cybrid.app/api/schema/swagger-ui) | APIs to manage organizations |
+    | [Bank API](https://bank.demo.cybrid.app/api/schema/swagger-ui)                 | APIs to manage banks         |
+    | [Identities API](https://id.demo.cybrid.app/api/schema/swagger-ui)                     | APIs to manage identities    |
+
+    When you're ready, [request access](https://www.cybrid.xyz/access) to your Dashboard to view and administer your Organization. Once you've logged in, you can begin creating Banks, either for sandbox or production usage, and start enabling your customers to leverage DeFi and web3 with confidence.
+
+    If you have any questions, please contact [Support](mailto:support@cybrid.app) at any time so that we can help.
+
+    ## Authentication
+
+    The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create Organization and Bank tokens can be generated via your Dashboard ([request access](https://www.cybrid.xyz/access)).
+
+    An Organization Token applies broadly to the whole Organization and all of its Banks, whereas, a Bank Token is specific to an individual Bank.
+
+    Both Organization and Bank tokens can be created using the OAuth Client Credential Grant flow. Each Organization and Bank has its own unique Client ID and Secret that allows for machine-to-machine authentication.
+
+    **Never share your Client ID or Secret publicly or in your source code repository**
+
+    Your Client ID and Secret can be exchanged for a time-limited Bearer Token by interacting with the Cybrid Identity Provider or through interacting with the **Authorize** button in this document:
+
+    ```
+    curl -X POST https://id.demo.cybrid.app/oauth/token -d '{
+        "grant_type": "client_credentials",
+        "client_id": "<Your Client ID>",
+        "client_secret": "<Your Secret>",
+        "scope": "<Your requested scopes -- space separated>"
+      }' -H "Content-Type: application/json"
+    ```
+
+    ## Scopes
+
+    The Cybrid platform supports the use of scopes to control the level of access a token is limited to. Scopes do not grant access to resources; instead, they provide limits, in support of the least privilege principal.
+
+    The following scopes are available on the platform and can be requested when generating either an Organization or a Bank token. Generally speaking, the _Read_ scope is required to read and list resources, the _Write_ scope is required to update a resource and the _Execute_ scope is required to create a resource.
+
+    | Resource      | Read scope         | Write scope          | Execute scope     | Token Type         |
+    |---------------|--------------------|----------------------|-------------------|--------------------|
+    | Organizations | organizations:read | organizations:write  |                   | Organization/ Bank |
+    | Banks         | banks:read         | banks:write          | banks:execute     | Organization/ Bank |
+    | Customers     | customers:read     | customers:write      | customers:execute | Bank               |
+    | Assets        | prices:read        |                      |                   | Bank               |
+    | Accounts      | accounts:read      |                      | accounts:execute  | Bank               |
+    | Prices        | prices:read        |                      |                   | Bank               |
+    | Symbols       | prices:read        |                      |                   | Bank               |
+    | Quotes        | quotes:read        |                      | quotes:execute    | Bank               |
+    | Trades        | trades:read        |                      | trades:execute    | Bank               |
+
+    ## Organizations
+
+    An Organization is meant to model the organization partnering with Cybrid to use our platform.
+
+    An Organization does not directly interact with customers. Instead, an Organization has one or more banks, which encompass the financial service offerings of the platform.
+
+    ## Banks
+
+    A Bank is owned by an Organization and can be thought of as an environment or container for Customers and product offerings. An example of a Bank would be your customer facing banking website, or an internal staging environment for testing and integration.
+
+    An Organization can have multiple banks, in sandbox or production environments. A sandbox Bank will be backed by stubbed data and process flows. For instance, identity record and funding source processes will be simulated rather than performed.
+
+    ## Customers
+
+    Customers represent your banking users on the platform. At present, we offer support for Individuals as Customers.
+
+    Customers must be verified in our system before they can play any part on the platform. See the Identity Records section for more details on how a customer can be verified.
+
+    Customers must also have an account to be able to transact. See the Accounts APIs for more details on setting up accounts for the customer.
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://www.cybrid.xyz/tos
+  title: Cybrid Identity API
+  version: v0.3.14
+servers:
+- url: https://id.demo.cybrid.app
+  variables:
+    defaultHost:
+      default: https://id.demo.cybrid.app
+paths:
+  /api/bank_applications:
+    get:
+      description: |-
+        Retrieve a list of bank OAuth2 applications.
+
+        Required scope: **banks:read**
+      operationId: listBankApplications
+      parameters:
+      - description: The page index to retrieve.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ListRequestPage'
+        style: form
+      - description: The number of entities per page to return.
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ListRequestPerPage'
+        style: form
+      - description: Bank guid to list applications for.
+        explode: true
+        in: query
+        name: bank_guid
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationList'
+          description: list bank applications (per_page parameter set)
+      security:
+      - BearerAuth: []
+        oauth2:
+        - banks:read
+      summary: List bank applications
+      tags:
+      - Bank Applications
+      x-accepts: application/json
+    post:
+      description: |-
+        Creates a bank OAuth2 application.
+
+        Required scope: **banks:write**
+      operationId: createBankApplication
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostBankApplication'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationWithSecret'
+          description: bank application created
+      security:
+      - BearerAuth: []
+        oauth2:
+        - banks:write
+      summary: Create bank application
+      tags:
+      - Bank Applications
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/organization_applications:
+    get:
+      description: |-
+        Retrieve a list of organization OAuth2 applications.
+
+        Required scope: **organizations:read**
+      operationId: listOrganizationApplications
+      parameters:
+      - description: The page index to retrieve.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ListRequestPage'
+        style: form
+      - description: The number of entities per page to return.
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ListRequestPerPage'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationList'
+          description: list organization applications (per_page parameter set)
+      security:
+      - BearerAuth: []
+        oauth2:
+        - organizations:read
+      summary: List organization applications
+      tags:
+      - Organization Applications
+      x-accepts: application/json
+    post:
+      description: |-
+        Create an organization OAuth2 application.
+
+        Required scope: **organizations:write**
+      operationId: createOrganizationApplication
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOrganizationApplication'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationWithSecret'
+          description: organization application created
+      security:
+      - BearerAuth: []
+        oauth2:
+        - organizations:write
+      summary: Create organization application
+      tags:
+      - Organization Applications
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    Application:
+      example:
+        name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        scopes:
+        - organizations:read
+        - organizations:read
+        client_id: client_id
+      properties:
+        name:
+          description: Name provided for the OAuth2 application.
+          type: string
+        client_id:
+          description: The OAuth2 application's client ID.
+          type: string
+        scopes:
+          description: List of the scopes granted to the OAuth2 application.
+          items:
+            enum:
+            - organizations:read
+            - organizations:write
+            - banks:read
+            - banks:write
+            - banks:execute
+            - accounts:read
+            - accounts:execute
+            - customers:read
+            - customers:write
+            - customers:execute
+            - prices:read
+            - quotes:execute
+            - quotes:read
+            - trades:execute
+            - trades:read
+            type: string
+          type: array
+        created_at:
+          description: ISO8601 datetime the application was created at.
+          format: date-time
+          type: string
+      required:
+      - client_id
+      - created_at
+      - name
+      - scopes
+      type: object
+    ApplicationWithSecret:
+      allOf:
+      - $ref: '#/components/schemas/Application'
+      - $ref: '#/components/schemas/ApplicationWithSecret_allOf'
+    ApplicationList:
+      example:
+        per_page: 1
+        total: 0
+        objects:
+        - name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          scopes:
+          - organizations:read
+          - organizations:read
+          client_id: client_id
+        - name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          scopes:
+          - organizations:read
+          - organizations:read
+          client_id: client_id
+        page: 0
+      properties:
+        total:
+          description: The total number of records available.
+          type: integer
+        page:
+          description: The page index.
+          minimum: 0
+          type: integer
+        per_page:
+          description: The number of records per page returned.
+          minimum: 1
+          type: integer
+        objects:
+          description: Array of applications
+          items:
+            $ref: '#/components/schemas/Application'
+          type: array
+      required:
+      - objects
+      - page
+      - per_page
+      - total
+      type: object
+    ListRequestPage:
+      default: 0
+      description: The page index to retrieve.
+      minimum: 0
+      type: integer
+    ListRequestPerPage:
+      default: 10
+      description: The number of entities per page to return.
+      maximum: 100
+      minimum: 1
+      type: integer
+    PostBankApplication:
+      properties:
+        name:
+          description: Name for the bank application.
+          maxLength: 128
+          minLength: 1
+          type: string
+        bank_guid:
+          description: Bank guid the application is associated to.
+          maxLength: 32
+          minLength: 32
+          type: string
+      required:
+      - name
+      type: object
+    PostOrganizationApplication:
+      properties:
+        name:
+          description: Name for the organization application.
+          maxLength: 128
+          minLength: 1
+          type: string
+      required:
+      - name
+      type: object
+    ApplicationWithSecret_allOf:
+      properties:
+        secret:
+          description: The OAuth2 application's secret.
+          type: string
+      required:
+      - secret
+      type: object
+  securitySchemes:
+    oauth2:
+      flows:
+        clientCredentials:
+          scopes:
+            banks:write: banks write
+            banks:read: banks read
+            organizations:write: organizations write
+            organizations:read: organizations read
+          tokenUrl: https://id.demo.cybrid.app/oauth/token
+      type: oauth2
+    BearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+
