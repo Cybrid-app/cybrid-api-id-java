@@ -85,7 +85,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.18.17
+  version: v0.19.0
 servers:
 - url: https://id.demo.cybrid.app
   variables:
@@ -264,14 +264,14 @@ components:
             - banks:execute
             - customers:read
             - accounts:read
+            - quotes:read
+            - trades:read
             - accounts:execute
             - customers:write
             - customers:execute
             - prices:read
             - quotes:execute
-            - quotes:read
             - trades:execute
-            - trades:read
             type: string
           type: array
         created_at:

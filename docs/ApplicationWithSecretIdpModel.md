@@ -26,14 +26,14 @@ BANKS_WRITE | &quot;banks:write&quot;
 BANKS_EXECUTE | &quot;banks:execute&quot;
 CUSTOMERS_READ | &quot;customers:read&quot;
 ACCOUNTS_READ | &quot;accounts:read&quot;
+QUOTES_READ | &quot;quotes:read&quot;
+TRADES_READ | &quot;trades:read&quot;
 ACCOUNTS_EXECUTE | &quot;accounts:execute&quot;
 CUSTOMERS_WRITE | &quot;customers:write&quot;
 CUSTOMERS_EXECUTE | &quot;customers:execute&quot;
 PRICES_READ | &quot;prices:read&quot;
 QUOTES_EXECUTE | &quot;quotes:execute&quot;
-QUOTES_READ | &quot;quotes:read&quot;
 TRADES_EXECUTE | &quot;trades:execute&quot;
-TRADES_READ | &quot;trades:read&quot;
 
 
 
