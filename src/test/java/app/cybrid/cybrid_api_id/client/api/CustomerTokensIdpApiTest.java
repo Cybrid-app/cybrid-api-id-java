@@ -11,67 +11,39 @@
  */
 
 
-package app.cybrid.cybrid_api_id.client.model;
+package app.cybrid.cybrid_api_id.client.api;
 
-import app.cybrid.cybrid_api_id.client.model.ApplicationIdpModel;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
+import app.cybrid.cybrid_api_id.client.model.CustomerTokenIdpModel;
+import app.cybrid.cybrid_api_id.client.model.PostCustomerTokenIdpModel;
 import org.junit.Test;
+import org.junit.Ignore;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
- * Model tests for ApplicationListIdpModel
+ * API tests for CustomerTokensIdpApi
  */
-public class ApplicationListIdpModelTest {
-    private final ApplicationListIdpModel model = new ApplicationListIdpModel();
+@Ignore
+public class CustomerTokensIdpApiTest {
 
+    private final CustomerTokensIdpApi api = new CustomerTokensIdpApi();
+
+    
     /**
-     * Model tests for ApplicationListIdpModel
+     * Create customer access token
+     *
+     * Creates a customer JWT access token.  Required scope: **customers:write**
      */
     @Test
-    public void testApplicationListIdpModel() {
-        // TODO: test ApplicationListIdpModel
-    }
+    public void createCustomerTokenTest()  {
+        PostCustomerTokenIdpModel postCustomerTokenIdpModel = null;
+        CustomerTokenIdpModel response = api.createCustomerToken(postCustomerTokenIdpModel).block();
 
-    /**
-     * Test the property 'total'
-     */
-    @Test
-    public void totalTest() {
-        // TODO: test total
+        // TODO: test validations
     }
-
-    /**
-     * Test the property 'page'
-     */
-    @Test
-    public void pageTest() {
-        // TODO: test page
-    }
-
-    /**
-     * Test the property 'perPage'
-     */
-    @Test
-    public void perPageTest() {
-        // TODO: test perPage
-    }
-
-    /**
-     * Test the property 'objects'
-     */
-    @Test
-    public void objectsTest() {
-        // TODO: test objects
-    }
-
+    
 }

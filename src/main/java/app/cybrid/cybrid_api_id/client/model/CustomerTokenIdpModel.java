@@ -13,7 +13,8 @@
 
 package app.cybrid.cybrid_api_id.client.model;
 
-import app.cybrid.cybrid_api_id.client.model.ApplicationIdpModel;
+import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,57 +22,87 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * Model tests for ApplicationListIdpModel
+ * CustomerTokenIdpModel
  */
-public class ApplicationListIdpModelTest {
-    private final ApplicationListIdpModel model = new ApplicationListIdpModel();
+@JsonPropertyOrder({
+  CustomerTokenIdpModel.JSON_PROPERTY_ACCESS_TOKEN
+})
+@JsonTypeName("CustomerToken")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-10T16:27:30.767599Z[Etc/UTC]")
+public class CustomerTokenIdpModel {
+  public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
+  private String accessToken;
 
-    /**
-     * Model tests for ApplicationListIdpModel
-     */
-    @Test
-    public void testApplicationListIdpModel() {
-        // TODO: test ApplicationListIdpModel
-    }
+  public CustomerTokenIdpModel() { 
+  }
 
-    /**
-     * Test the property 'total'
-     */
-    @Test
-    public void totalTest() {
-        // TODO: test total
-    }
+  public CustomerTokenIdpModel accessToken(String accessToken) {
+    
+    this.accessToken = accessToken;
+    return this;
+  }
 
-    /**
-     * Test the property 'page'
-     */
-    @Test
-    public void pageTest() {
-        // TODO: test page
-    }
+   /**
+   * The JWT access token for the customer.
+   * @return accessToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The JWT access token for the customer.")
+  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-    /**
-     * Test the property 'perPage'
-     */
-    @Test
-    public void perPageTest() {
-        // TODO: test perPage
-    }
+  public String getAccessToken() {
+    return accessToken;
+  }
 
-    /**
-     * Test the property 'objects'
-     */
-    @Test
-    public void objectsTest() {
-        // TODO: test objects
+
+  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccessToken(String accessToken) {
+    this.accessToken = accessToken;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CustomerTokenIdpModel customerToken = (CustomerTokenIdpModel) o;
+    return Objects.equals(this.accessToken, customerToken.accessToken);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(accessToken);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CustomerTokenIdpModel {\n");
+    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
+

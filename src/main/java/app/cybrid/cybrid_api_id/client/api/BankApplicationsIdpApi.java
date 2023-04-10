@@ -27,7 +27,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T18:31:56.980123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-10T16:27:30.767599Z[Etc/UTC]")
 public class BankApplicationsIdpApi {
     private ApiClient apiClient;
 
@@ -105,7 +105,7 @@ public class BankApplicationsIdpApi {
     /**
      * List bank applications
      * Retrieve a list of bank OAuth2 applications.  Required scope: **banks:read**
-     * <p><b>200</b> - list bank applications (per_page parameter set)
+     * <p><b>200</b> - list bank applications
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
      * @param bankGuid Bank guid to list applications for.
@@ -142,7 +142,7 @@ public class BankApplicationsIdpApi {
     /**
      * List bank applications
      * Retrieve a list of bank OAuth2 applications.  Required scope: **banks:read**
-     * <p><b>200</b> - list bank applications (per_page parameter set)
+     * <p><b>200</b> - list bank applications
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
      * @param bankGuid Bank guid to list applications for.

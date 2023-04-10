@@ -27,7 +27,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T18:31:56.980123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-10T16:27:30.767599Z[Etc/UTC]")
 public class OrganizationApplicationsIdpApi {
     private ApiClient apiClient;
 
@@ -105,7 +105,7 @@ public class OrganizationApplicationsIdpApi {
     /**
      * List organization applications
      * Retrieve a list of organization OAuth2 applications.  Required scope: **organizations:read**
-     * <p><b>200</b> - list organization applications (per_page parameter set)
+     * <p><b>200</b> - list organization applications
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
      * @return ApplicationListIdpModel
@@ -140,7 +140,7 @@ public class OrganizationApplicationsIdpApi {
     /**
      * List organization applications
      * Retrieve a list of organization OAuth2 applications.  Required scope: **organizations:read**
-     * <p><b>200</b> - list organization applications (per_page parameter set)
+     * <p><b>200</b> - list organization applications
      * @param page The page index to retrieve.
      * @param perPage The number of entities per page to return.
      * @return ApplicationListIdpModel

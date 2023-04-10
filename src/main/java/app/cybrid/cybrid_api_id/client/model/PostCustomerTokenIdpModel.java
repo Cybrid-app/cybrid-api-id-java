@@ -13,65 +13,208 @@
 
 package app.cybrid.cybrid_api_id.client.model;
 
-import app.cybrid.cybrid_api_id.client.model.ApplicationIdpModel;
+import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * Model tests for ApplicationListIdpModel
+ * PostCustomerTokenIdpModel
  */
-public class ApplicationListIdpModelTest {
-    private final ApplicationListIdpModel model = new ApplicationListIdpModel();
+@JsonPropertyOrder({
+  PostCustomerTokenIdpModel.JSON_PROPERTY_CUSTOMER_GUID,
+  PostCustomerTokenIdpModel.JSON_PROPERTY_SCOPES
+})
+@JsonTypeName("PostCustomerToken")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-10T16:27:30.767599Z[Etc/UTC]")
+public class PostCustomerTokenIdpModel {
+  public static final String JSON_PROPERTY_CUSTOMER_GUID = "customer_guid";
+  private String customerGuid;
 
-    /**
-     * Model tests for ApplicationListIdpModel
-     */
-    @Test
-    public void testApplicationListIdpModel() {
-        // TODO: test ApplicationListIdpModel
+  /**
+   * Gets or Sets scopes
+   */
+  public enum ScopesEnum {
+    CUSTOMERS_READ("customers:read"),
+    
+    CUSTOMERS_WRITE("customers:write"),
+    
+    ACCOUNTS_READ("accounts:read"),
+    
+    ACCOUNTS_EXECUTE("accounts:execute"),
+    
+    PRICES_READ("prices:read"),
+    
+    QUOTES_READ("quotes:read"),
+    
+    QUOTES_EXECUTE("quotes:execute"),
+    
+    TRADES_READ("trades:read"),
+    
+    TRADES_EXECUTE("trades:execute"),
+    
+    TRANSFERS_READ("transfers:read"),
+    
+    TRANSFERS_EXECUTE("transfers:execute"),
+    
+    REWARDS_READ("rewards:read"),
+    
+    EXTERNAL_BANK_ACCOUNTS_READ("external_bank_accounts:read"),
+    
+    EXTERNAL_BANK_ACCOUNTS_WRITE("external_bank_accounts:write"),
+    
+    EXTERNAL_BANK_ACCOUNTS_EXECUTE("external_bank_accounts:execute"),
+    
+    WORKFLOWS_READ("workflows:read"),
+    
+    WORKFLOWS_EXECUTE("workflows:execute"),
+    
+    DEPOSIT_ADDRESSES_READ("deposit_addresses:read"),
+    
+    DEPOSIT_ADDRESSES_EXECUTE("deposit_addresses:execute");
+
+    private String value;
+
+    ScopesEnum(String value) {
+      this.value = value;
     }
 
-    /**
-     * Test the property 'total'
-     */
-    @Test
-    public void totalTest() {
-        // TODO: test total
+    @JsonValue
+    public String getValue() {
+      return value;
     }
 
-    /**
-     * Test the property 'page'
-     */
-    @Test
-    public void pageTest() {
-        // TODO: test page
+    @Override
+    public String toString() {
+      return String.valueOf(value);
     }
 
-    /**
-     * Test the property 'perPage'
-     */
-    @Test
-    public void perPageTest() {
-        // TODO: test perPage
+    @JsonCreator
+    public static ScopesEnum fromValue(String value) {
+      for (ScopesEnum b : ScopesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
+  }
 
-    /**
-     * Test the property 'objects'
-     */
-    @Test
-    public void objectsTest() {
-        // TODO: test objects
+  public static final String JSON_PROPERTY_SCOPES = "scopes";
+  private Set<ScopesEnum> scopes = new LinkedHashSet<>();
+
+  public PostCustomerTokenIdpModel() { 
+  }
+
+  public PostCustomerTokenIdpModel customerGuid(String customerGuid) {
+    
+    this.customerGuid = customerGuid;
+    return this;
+  }
+
+   /**
+   * Customer guid the access token is being generated for.
+   * @return customerGuid
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Customer guid the access token is being generated for.")
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_GUID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getCustomerGuid() {
+    return customerGuid;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_GUID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCustomerGuid(String customerGuid) {
+    this.customerGuid = customerGuid;
+  }
+
+
+  public PostCustomerTokenIdpModel scopes(Set<ScopesEnum> scopes) {
+    
+    this.scopes = scopes;
+    return this;
+  }
+
+  public PostCustomerTokenIdpModel addScopesItem(ScopesEnum scopesItem) {
+    this.scopes.add(scopesItem);
+    return this;
+  }
+
+   /**
+   * List of the scopes requested for the access token.
+   * @return scopes
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "List of the scopes requested for the access token.")
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Set<ScopesEnum> getScopes() {
+    return scopes;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setScopes(Set<ScopesEnum> scopes) {
+    this.scopes = scopes;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PostCustomerTokenIdpModel postCustomerToken = (PostCustomerTokenIdpModel) o;
+    return Objects.equals(this.customerGuid, postCustomerToken.customerGuid) &&
+        Objects.equals(this.scopes, postCustomerToken.scopes);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(customerGuid, scopes);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PostCustomerTokenIdpModel {\n");
+    sb.append("    customerGuid: ").append(toIndentedString(customerGuid)).append("\n");
+    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
+

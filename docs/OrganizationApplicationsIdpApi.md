@@ -1,11 +1,11 @@
 # OrganizationApplicationsIdpApi
 
-All URIs are relative to *https://id.demo.cybrid.app*
+All URIs are relative to *https://id.sandbox.cybrid.app*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createOrganizationApplication**](OrganizationApplicationsIdpApi.md#createOrganizationApplication) | **POST** /api/organization_applications | Create organization application
-[**listOrganizationApplications**](OrganizationApplicationsIdpApi.md#listOrganizationApplications) | **GET** /api/organization_applications | List organization applications
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createOrganizationApplication**](OrganizationApplicationsIdpApi.md#createOrganizationApplication) | **POST** /api/organization_applications | Create organization application |
+| [**listOrganizationApplications**](OrganizationApplicationsIdpApi.md#listOrganizationApplications) | **GET** /api/organization_applications | List organization applications |
 
 
 
@@ -31,7 +31,7 @@ import app.cybrid.cybrid_api_id.client.api.OrganizationApplicationsIdpApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://id.demo.cybrid.app");
+        defaultClient.setBasePath("https://id.sandbox.cybrid.app");
         
         // Configure HTTP bearer authorization: BearerAuth
         HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
@@ -60,9 +60,9 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **postOrganizationApplicationIdpModel** | [**PostOrganizationApplicationIdpModel**](PostOrganizationApplicationIdpModel.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **postOrganizationApplicationIdpModel** | [**PostOrganizationApplicationIdpModel**](PostOrganizationApplicationIdpModel.md)|  | |
 
 ### Return type
 
@@ -106,7 +106,7 @@ import app.cybrid.cybrid_api_id.client.api.OrganizationApplicationsIdpApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://id.demo.cybrid.app");
+        defaultClient.setBasePath("https://id.sandbox.cybrid.app");
         
         // Configure HTTP bearer authorization: BearerAuth
         HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
@@ -136,10 +136,10 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **java.math.BigInteger**| The page index to retrieve. | [optional] [default to 0]
- **perPage** | **java.math.BigInteger**| The number of entities per page to return. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **java.math.BigInteger**| The page index to retrieve. | [optional] |
+| **perPage** | **java.math.BigInteger**| The number of entities per page to return. | [optional] |
 
 ### Return type
 
@@ -158,5 +158,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | list organization applications (per_page parameter set) |  -  |
+| **200** | list organization applications |  -  |
 

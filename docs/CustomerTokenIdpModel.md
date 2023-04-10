@@ -1,13 +1,13 @@
 
 
-# PostOrganizationApplicationIdpModel
+# CustomerTokenIdpModel
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | Name for the organization application. |  |
+|**accessToken** | **String** | The JWT access token for the customer. |  [optional] |
 
 
 
