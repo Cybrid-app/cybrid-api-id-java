@@ -3,7 +3,7 @@ package app.cybrid.cybrid_api_id.client.auth;
 import org.springframework.http.HttpHeaders;
 import org.springframework.util.MultiValueMap;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-26T12:44:23.752308Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-26T14:58:04.282780Z[Etc/UTC]")
 public class ApiKeyAuth implements Authentication {
     private final String location;
     private final String paramName;

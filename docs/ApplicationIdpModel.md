@@ -18,32 +18,32 @@
 
 | Name | Value |
 |---- | -----|
-| ORGANIZATIONS_READ | &quot;organizations:read&quot; |
-| ORGANIZATIONS_WRITE | &quot;organizations:write&quot; |
+| ACCOUNTS_EXECUTE | &quot;accounts:execute&quot; |
+| ACCOUNTS_READ | &quot;accounts:read&quot; |
+| BANKS_EXECUTE | &quot;banks:execute&quot; |
 | BANKS_READ | &quot;banks:read&quot; |
 | BANKS_WRITE | &quot;banks:write&quot; |
-| BANKS_EXECUTE | &quot;banks:execute&quot; |
-| CUSTOMERS_READ | &quot;customers:read&quot; |
-| ACCOUNTS_READ | &quot;accounts:read&quot; |
-| QUOTES_READ | &quot;quotes:read&quot; |
-| TRADES_READ | &quot;trades:read&quot; |
-| TRANSFERS_READ | &quot;transfers:read&quot; |
-| EXTERNAL_BANK_ACCOUNTS_READ | &quot;external_bank_accounts:read&quot; |
-| WORKFLOWS_READ | &quot;workflows:read&quot; |
-| DEPOSIT_ADDRESSES_READ | &quot;deposit_addresses:read&quot; |
-| ACCOUNTS_EXECUTE | &quot;accounts:execute&quot; |
-| CUSTOMERS_WRITE | &quot;customers:write&quot; |
 | CUSTOMERS_EXECUTE | &quot;customers:execute&quot; |
+| CUSTOMERS_READ | &quot;customers:read&quot; |
+| CUSTOMERS_WRITE | &quot;customers:write&quot; |
+| DEPOSIT_ADDRESSES_EXECUTE | &quot;deposit_addresses:execute&quot; |
+| DEPOSIT_ADDRESSES_READ | &quot;deposit_addresses:read&quot; |
+| EXTERNAL_BANK_ACCOUNTS_EXECUTE | &quot;external_bank_accounts:execute&quot; |
+| EXTERNAL_BANK_ACCOUNTS_READ | &quot;external_bank_accounts:read&quot; |
+| EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
+| ORGANIZATIONS_READ | &quot;organizations:read&quot; |
+| ORGANIZATIONS_WRITE | &quot;organizations:write&quot; |
 | PRICES_READ | &quot;prices:read&quot; |
 | QUOTES_EXECUTE | &quot;quotes:execute&quot; |
-| TRADES_EXECUTE | &quot;trades:execute&quot; |
-| TRANSFERS_EXECUTE | &quot;transfers:execute&quot; |
+| QUOTES_READ | &quot;quotes:read&quot; |
 | REWARDS_EXECUTE | &quot;rewards:execute&quot; |
 | REWARDS_READ | &quot;rewards:read&quot; |
-| EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
-| EXTERNAL_BANK_ACCOUNTS_EXECUTE | &quot;external_bank_accounts:execute&quot; |
+| TRADES_EXECUTE | &quot;trades:execute&quot; |
+| TRADES_READ | &quot;trades:read&quot; |
+| TRANSFERS_EXECUTE | &quot;transfers:execute&quot; |
+| TRANSFERS_READ | &quot;transfers:read&quot; |
 | WORKFLOWS_EXECUTE | &quot;workflows:execute&quot; |
-| DEPOSIT_ADDRESSES_EXECUTE | &quot;deposit_addresses:execute&quot; |
+| WORKFLOWS_READ | &quot;workflows:read&quot; |
 
 
 
