@@ -31,6 +31,8 @@
 | EXTERNAL_BANK_ACCOUNTS_READ | &quot;external_bank_accounts:read&quot; |
 | EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
 | EXTERNAL_BANK_ACCOUNTS_EXECUTE | &quot;external_bank_accounts:execute&quot; |
+| EXTERNAL_WALLETS_READ | &quot;external_wallets:read&quot; |
+| EXTERNAL_WALLETS_EXECUTE | &quot;external_wallets:execute&quot; |
 | WORKFLOWS_READ | &quot;workflows:read&quot; |
 | WORKFLOWS_EXECUTE | &quot;workflows:execute&quot; |
 | DEPOSIT_ADDRESSES_READ | &quot;deposit_addresses:read&quot; |
