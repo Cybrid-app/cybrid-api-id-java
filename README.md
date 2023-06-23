@@ -2,9 +2,9 @@
 
 Cybrid Identity API
 
-- API version: v0.74.4
+- API version: v0.74.5
 
-- Build date: 2023-06-23T13:04:39.930839Z[Etc/UTC]
+- Build date: 2023-06-23T18:53:26.233395Z[Etc/UTC]
 
 # Cybrid API documentation
 
@@ -185,7 +185,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>app.cybrid</groupId>
   <artifactId>cybrid-api-id-java</artifactId>
-  <version>v0.74.4</version>
+  <version>v0.74.5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -201,7 +201,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "app.cybrid:cybrid-api-id-java:v0.74.4"
+     implementation "app.cybrid:cybrid-api-id-java:v0.74.5"
   }
 ```
 
@@ -215,7 +215,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/cybrid-api-id-java-v0.74.4.jar`
+- `target/cybrid-api-id-java-v0.74.5.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -300,10 +300,11 @@ Authentication schemes defined for the API:
 - **Flow**: application
 - **Authorization URL**: 
 - **Scopes**: 
-  - banks:write: banks write
-  - banks:read: banks read
   - organizations:write: organizations write
   - organizations:read: organizations read
+  - banks:write: banks write
+  - banks:read: banks read
+  - customers:write: customers write
 
 
 ## Recommendation
