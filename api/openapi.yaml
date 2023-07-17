@@ -199,7 +199,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.78.13
+  version: v0.78.15
 servers:
 - url: https://id.sandbox.cybrid.app
   variables:
@@ -279,7 +279,8 @@ paths:
       x-accepts: application/json
   /api/customer_tokens:
     post:
-      description: "Creates a customer JWT access token.\n\nRequired scope: **customers:write**"
+      description: "Creates a customer JWT access token.\n\nRequired scopes: **customers:write**\
+        \ and **customers:read**"
       operationId: createCustomerToken
       parameters: []
       requestBody:
@@ -574,6 +575,7 @@ components:
             banks:write: banks write
             banks:read: banks read
             customers:write: customers write
+            customers:read: customers read
           tokenUrl: https://id.sandbox.cybrid.app/oauth/token
       type: oauth2
     BearerAuth:

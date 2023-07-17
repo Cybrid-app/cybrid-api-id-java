@@ -26,7 +26,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-07-17T13:54:25.598240Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-07-17T22:16:43.272546Z[Etc/UTC]")
 public class CustomerTokensIdpApi {
     private ApiClient apiClient;
 
@@ -49,7 +49,7 @@ public class CustomerTokensIdpApi {
 
     /**
      * Create customer access token
-     * Creates a customer JWT access token.  Required scope: **customers:write**
+     * Creates a customer JWT access token.  Required scopes: **customers:write** and **customers:read**
      * <p><b>201</b> - Customer token created
      * @param postCustomerTokenIdpModel The postCustomerTokenIdpModel parameter
      * @return CustomerTokenIdpModel
@@ -86,7 +86,7 @@ public class CustomerTokensIdpApi {
 
     /**
      * Create customer access token
-     * Creates a customer JWT access token.  Required scope: **customers:write**
+     * Creates a customer JWT access token.  Required scopes: **customers:write** and **customers:read**
      * <p><b>201</b> - Customer token created
      * @param postCustomerTokenIdpModel The postCustomerTokenIdpModel parameter
      * @return CustomerTokenIdpModel
