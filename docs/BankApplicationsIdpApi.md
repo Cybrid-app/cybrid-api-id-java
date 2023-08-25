@@ -15,7 +15,7 @@ All URIs are relative to *https://id.sandbox.cybrid.app*
 
 Create bank application
 
-Creates a bank OAuth2 application.  Required scope: **banks:write**
+Creates a bank OAuth2 application.  Required scope: **bank_applications:execute**
 
 ### Example
 

@@ -21,6 +21,7 @@
 |---- | -----|
 | ACCOUNTS_EXECUTE | &quot;accounts:execute&quot; |
 | ACCOUNTS_READ | &quot;accounts:read&quot; |
+| BANK_APPLICATIONS_EXECUTE | &quot;bank_applications:execute&quot; |
 | BANKS_EXECUTE | &quot;banks:execute&quot; |
 | BANKS_READ | &quot;banks:read&quot; |
 | BANKS_WRITE | &quot;banks:write&quot; |
@@ -34,6 +35,7 @@
 | EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
 | EXTERNAL_WALLETS_EXECUTE | &quot;external_wallets:execute&quot; |
 | EXTERNAL_WALLETS_READ | &quot;external_wallets:read&quot; |
+| ORGANIZATION_APPLICATIONS_EXECUTE | &quot;organization_applications:execute&quot; |
 | ORGANIZATIONS_READ | &quot;organizations:read&quot; |
 | ORGANIZATIONS_WRITE | &quot;organizations:write&quot; |
 | PRICES_READ | &quot;prices:read&quot; |
