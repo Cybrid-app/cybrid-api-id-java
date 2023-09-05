@@ -11,333 +11,39 @@
  */
 
 
-package app.cybrid.cybrid_api_id.client.model;
+package app.cybrid.cybrid_api_id.client.api;
 
-import java.util.Objects;
-import java.util.Arrays;
-import app.cybrid.cybrid_api_id.client.model.ApplicationIdpModel;
-import app.cybrid.cybrid_api_id.client.model.ApplicationWithSecretAllOfIdpModel;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import app.cybrid.cybrid_api_id.client.model.PostUserIdpModel;
+import app.cybrid.cybrid_api_id.client.model.UserIdpModel;
+import org.junit.Test;
+import org.junit.Ignore;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
- * ApplicationWithSecretIdpModel
+ * API tests for UserIdpApi
  */
-@JsonPropertyOrder({
-  ApplicationWithSecretIdpModel.JSON_PROPERTY_NAME,
-  ApplicationWithSecretIdpModel.JSON_PROPERTY_CLIENT_ID,
-  ApplicationWithSecretIdpModel.JSON_PROPERTY_SCOPES,
-  ApplicationWithSecretIdpModel.JSON_PROPERTY_CREATED_AT,
-  ApplicationWithSecretIdpModel.JSON_PROPERTY_SECRET
-})
-@JsonTypeName("ApplicationWithSecret")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-09-05T19:14:16.916795Z[Etc/UTC]")
-public class ApplicationWithSecretIdpModel {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+@Ignore
+public class UserIdpApiTest {
 
-  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-  private String clientId;
+    private final UserIdpApi api = new UserIdpApi();
 
-  /**
-   * Gets or Sets scopes
-   */
-  public enum ScopesEnum {
-    ACCOUNTS_EXECUTE("accounts:execute"),
     
-    ACCOUNTS_READ("accounts:read"),
-    
-    BANK_APPLICATIONS_EXECUTE("bank_applications:execute"),
-    
-    BANKS_EXECUTE("banks:execute"),
-    
-    BANKS_READ("banks:read"),
-    
-    BANKS_WRITE("banks:write"),
-    
-    CUSTOMERS_EXECUTE("customers:execute"),
-    
-    CUSTOMERS_READ("customers:read"),
-    
-    CUSTOMERS_WRITE("customers:write"),
-    
-    DEPOSIT_ADDRESSES_EXECUTE("deposit_addresses:execute"),
-    
-    DEPOSIT_ADDRESSES_READ("deposit_addresses:read"),
-    
-    EXTERNAL_BANK_ACCOUNTS_EXECUTE("external_bank_accounts:execute"),
-    
-    EXTERNAL_BANK_ACCOUNTS_READ("external_bank_accounts:read"),
-    
-    EXTERNAL_BANK_ACCOUNTS_WRITE("external_bank_accounts:write"),
-    
-    EXTERNAL_WALLETS_EXECUTE("external_wallets:execute"),
-    
-    EXTERNAL_WALLETS_READ("external_wallets:read"),
-    
-    ORGANIZATION_APPLICATIONS_EXECUTE("organization_applications:execute"),
-    
-    ORGANIZATIONS_READ("organizations:read"),
-    
-    ORGANIZATIONS_WRITE("organizations:write"),
-    
-    PRICES_READ("prices:read"),
-    
-    QUOTES_EXECUTE("quotes:execute"),
-    
-    QUOTES_READ("quotes:read"),
-    
-    REWARDS_EXECUTE("rewards:execute"),
-    
-    REWARDS_READ("rewards:read"),
-    
-    TRADES_EXECUTE("trades:execute"),
-    
-    TRADES_READ("trades:read"),
-    
-    TRANSFERS_EXECUTE("transfers:execute"),
-    
-    TRANSFERS_READ("transfers:read"),
-    
-    USERS_EXECUTE("users:execute"),
-    
-    WORKFLOWS_EXECUTE("workflows:execute"),
-    
-    WORKFLOWS_READ("workflows:read");
+    /**
+     * Create user
+     *
+     * Creates a user.  
+     */
+    @Test
+    public void createUserTest()  {
+        PostUserIdpModel postUserIdpModel = null;
+        UserIdpModel response = api.createUser(postUserIdpModel).block();
 
-    private String value;
-
-    ScopesEnum(String value) {
-      this.value = value;
+        // TODO: test validations
     }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ScopesEnum fromValue(String value) {
-      for (ScopesEnum b : ScopesEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_SCOPES = "scopes";
-  private List<ScopesEnum> scopes = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private OffsetDateTime createdAt;
-
-  public static final String JSON_PROPERTY_SECRET = "secret";
-  private String secret;
-
-  public ApplicationWithSecretIdpModel() { 
-  }
-
-  public ApplicationWithSecretIdpModel name(String name) {
     
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name provided for the OAuth2 application.
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name provided for the OAuth2 application.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public ApplicationWithSecretIdpModel clientId(String clientId) {
-    
-    this.clientId = clientId;
-    return this;
-  }
-
-   /**
-   * The OAuth2 application&#39;s client ID.
-   * @return clientId
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The OAuth2 application's client ID.")
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getClientId() {
-    return clientId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
-
-  public ApplicationWithSecretIdpModel scopes(List<ScopesEnum> scopes) {
-    
-    this.scopes = scopes;
-    return this;
-  }
-
-  public ApplicationWithSecretIdpModel addScopesItem(ScopesEnum scopesItem) {
-    this.scopes.add(scopesItem);
-    return this;
-  }
-
-   /**
-   * List of the scopes granted to the OAuth2 application.
-   * @return scopes
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "List of the scopes granted to the OAuth2 application.")
-  @JsonProperty(JSON_PROPERTY_SCOPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<ScopesEnum> getScopes() {
-    return scopes;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SCOPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setScopes(List<ScopesEnum> scopes) {
-    this.scopes = scopes;
-  }
-
-
-  public ApplicationWithSecretIdpModel createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * ISO8601 datetime the application was created at.
-   * @return createdAt
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ISO8601 datetime the application was created at.")
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public ApplicationWithSecretIdpModel secret(String secret) {
-    
-    this.secret = secret;
-    return this;
-  }
-
-   /**
-   * The OAuth2 application&#39;s secret.
-   * @return secret
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The OAuth2 application's secret.")
-  @JsonProperty(JSON_PROPERTY_SECRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getSecret() {
-    return secret;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SECRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSecret(String secret) {
-    this.secret = secret;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ApplicationWithSecretIdpModel applicationWithSecret = (ApplicationWithSecretIdpModel) o;
-    return Objects.equals(this.name, applicationWithSecret.name) &&
-        Objects.equals(this.clientId, applicationWithSecret.clientId) &&
-        Objects.equals(this.scopes, applicationWithSecret.scopes) &&
-        Objects.equals(this.createdAt, applicationWithSecret.createdAt) &&
-        Objects.equals(this.secret, applicationWithSecret.secret);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, clientId, scopes, createdAt, secret);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationWithSecretIdpModel {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-
