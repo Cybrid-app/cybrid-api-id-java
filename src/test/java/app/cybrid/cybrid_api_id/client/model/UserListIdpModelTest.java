@@ -13,6 +13,7 @@
 
 package app.cybrid.cybrid_api_id.client.model;
 
+import app.cybrid.cybrid_api_id.client.model.UserIdpModel;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,31 +21,57 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for CustomerTokenIdpModel
+ * Model tests for UserListIdpModel
  */
-public class CustomerTokenIdpModelTest {
-    private final CustomerTokenIdpModel model = new CustomerTokenIdpModel();
+public class UserListIdpModelTest {
+    private final UserListIdpModel model = new UserListIdpModel();
 
     /**
-     * Model tests for CustomerTokenIdpModel
+     * Model tests for UserListIdpModel
      */
     @Test
-    public void testCustomerTokenIdpModel() {
-        // TODO: test CustomerTokenIdpModel
+    public void testUserListIdpModel() {
+        // TODO: test UserListIdpModel
     }
 
     /**
-     * Test the property 'accessToken'
+     * Test the property 'total'
      */
     @Test
-    public void accessTokenTest() {
-        // TODO: test accessToken
+    public void totalTest() {
+        // TODO: test total
+    }
+
+    /**
+     * Test the property 'page'
+     */
+    @Test
+    public void pageTest() {
+        // TODO: test page
+    }
+
+    /**
+     * Test the property 'perPage'
+     */
+    @Test
+    public void perPageTest() {
+        // TODO: test perPage
+    }
+
+    /**
+     * Test the property 'objects'
+     */
+    @Test
+    public void objectsTest() {
+        // TODO: test objects
     }
 
 }

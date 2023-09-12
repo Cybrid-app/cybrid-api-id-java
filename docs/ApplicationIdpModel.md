@@ -47,6 +47,7 @@
 | TRANSFERS_EXECUTE | &quot;transfers:execute&quot; |
 | TRANSFERS_READ | &quot;transfers:read&quot; |
 | USERS_EXECUTE | &quot;users:execute&quot; |
+| USERS_READ | &quot;users:read&quot; |
 | WORKFLOWS_EXECUTE | &quot;workflows:execute&quot; |
 | WORKFLOWS_READ | &quot;workflows:read&quot; |
 

@@ -11,40 +11,55 @@
  */
 
 
-package app.cybrid.cybrid_api_id.client.model;
+package app.cybrid.cybrid_api_id.client.api;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
+import app.cybrid.cybrid_api_id.client.model.PostUserIdpModel;
+import app.cybrid.cybrid_api_id.client.model.UserIdpModel;
+import app.cybrid.cybrid_api_id.client.model.UserListIdpModel;
 import org.junit.Test;
+import org.junit.Ignore;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
- * Model tests for CustomerTokenIdpModel
+ * API tests for UsersIdpApi
  */
-public class CustomerTokenIdpModelTest {
-    private final CustomerTokenIdpModel model = new CustomerTokenIdpModel();
+@Ignore
+public class UsersIdpApiTest {
 
+    private final UsersIdpApi api = new UsersIdpApi();
+
+    
     /**
-     * Model tests for CustomerTokenIdpModel
+     * Create user
+     *
+     * Creates a user.  
      */
     @Test
-    public void testCustomerTokenIdpModel() {
-        // TODO: test CustomerTokenIdpModel
-    }
+    public void createUserTest()  {
+        PostUserIdpModel postUserIdpModel = null;
+        UserIdpModel response = api.createUser(postUserIdpModel).block();
 
+        // TODO: test validations
+    }
+    
     /**
-     * Test the property 'accessToken'
+     * List users
+     *
+     * Retrieve a list users.  Required scope: **users:read**
      */
     @Test
-    public void accessTokenTest() {
-        // TODO: test accessToken
-    }
+    public void listUserTest()  {
+        java.math.BigInteger page = null;
+        java.math.BigInteger perPage = null;
+        String guid = null;
+        UserListIdpModel response = api.listUser(page, perPage, guid).block();
 
+        // TODO: test validations
+    }
+    
 }

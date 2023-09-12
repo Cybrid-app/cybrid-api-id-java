@@ -13,6 +13,9 @@
 
 package app.cybrid.cybrid_api_id.client.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import app.cybrid.cybrid_api_id.client.model.UserIdpModel;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,31 +23,195 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.ArrayList;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * Model tests for CustomerTokenIdpModel
+ * UserListIdpModel
  */
-public class CustomerTokenIdpModelTest {
-    private final CustomerTokenIdpModel model = new CustomerTokenIdpModel();
+@JsonPropertyOrder({
+  UserListIdpModel.JSON_PROPERTY_TOTAL,
+  UserListIdpModel.JSON_PROPERTY_PAGE,
+  UserListIdpModel.JSON_PROPERTY_PER_PAGE,
+  UserListIdpModel.JSON_PROPERTY_OBJECTS
+})
+@JsonTypeName("UserList")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-09-12T22:29:26.771609Z[Etc/UTC]")
+public class UserListIdpModel {
+  public static final String JSON_PROPERTY_TOTAL = "total";
+  private java.math.BigInteger total;
 
-    /**
-     * Model tests for CustomerTokenIdpModel
-     */
-    @Test
-    public void testCustomerTokenIdpModel() {
-        // TODO: test CustomerTokenIdpModel
-    }
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private java.math.BigInteger page;
 
-    /**
-     * Test the property 'accessToken'
-     */
-    @Test
-    public void accessTokenTest() {
-        // TODO: test accessToken
+  public static final String JSON_PROPERTY_PER_PAGE = "per_page";
+  private java.math.BigInteger perPage;
+
+  public static final String JSON_PROPERTY_OBJECTS = "objects";
+  private List<UserIdpModel> objects = new ArrayList<>();
+
+  public UserListIdpModel() { 
+  }
+
+  public UserListIdpModel total(java.math.BigInteger total) {
+    
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * The total number of users available.
+   * @return total
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The total number of users available.")
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.math.BigInteger getTotal() {
+    return total;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTotal(java.math.BigInteger total) {
+    this.total = total;
+  }
+
+
+  public UserListIdpModel page(java.math.BigInteger page) {
+    
+    this.page = page;
+    return this;
+  }
+
+   /**
+   * The page index.
+   * minimum: 0
+   * @return page
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The page index.")
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.math.BigInteger getPage() {
+    return page;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPage(java.math.BigInteger page) {
+    this.page = page;
+  }
+
+
+  public UserListIdpModel perPage(java.math.BigInteger perPage) {
+    
+    this.perPage = perPage;
+    return this;
+  }
+
+   /**
+   * The number of records per page returned.
+   * minimum: 1
+   * @return perPage
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The number of records per page returned.")
+  @JsonProperty(JSON_PROPERTY_PER_PAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.math.BigInteger getPerPage() {
+    return perPage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PER_PAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPerPage(java.math.BigInteger perPage) {
+    this.perPage = perPage;
+  }
+
+
+  public UserListIdpModel objects(List<UserIdpModel> objects) {
+    
+    this.objects = objects;
+    return this;
+  }
+
+  public UserListIdpModel addObjectsItem(UserIdpModel objectsItem) {
+    this.objects.add(objectsItem);
+    return this;
+  }
+
+   /**
+   * Array of applications
+   * @return objects
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Array of applications")
+  @JsonProperty(JSON_PROPERTY_OBJECTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<UserIdpModel> getObjects() {
+    return objects;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OBJECTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setObjects(List<UserIdpModel> objects) {
+    this.objects = objects;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UserListIdpModel userList = (UserListIdpModel) o;
+    return Objects.equals(this.total, userList.total) &&
+        Objects.equals(this.page, userList.page) &&
+        Objects.equals(this.perPage, userList.perPage) &&
+        Objects.equals(this.objects, userList.objects);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(total, page, perPage, objects);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserListIdpModel {\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    perPage: ").append(toIndentedString(perPage)).append("\n");
+    sb.append("    objects: ").append(toIndentedString(objects)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
+
