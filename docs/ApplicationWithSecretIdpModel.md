@@ -41,8 +41,6 @@
 | PRICES_READ | &quot;prices:read&quot; |
 | QUOTES_EXECUTE | &quot;quotes:execute&quot; |
 | QUOTES_READ | &quot;quotes:read&quot; |
-| REWARDS_EXECUTE | &quot;rewards:execute&quot; |
-| REWARDS_READ | &quot;rewards:read&quot; |
 | TRADES_EXECUTE | &quot;trades:execute&quot; |
 | TRADES_READ | &quot;trades:read&quot; |
 | TRANSFERS_EXECUTE | &quot;transfers:execute&quot; |
