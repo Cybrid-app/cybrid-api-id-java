@@ -2,9 +2,9 @@
 
 Cybrid Identity API
 
-- API version: v0.104.0
+- API version: v0.104.1
 
-- Build date: 2023-10-11T19:42:18.823555Z[Etc/UTC]
+- Build date: 2023-10-11T22:01:05.045287Z[Etc/UTC]
 
 # Cybrid API documentation
 
@@ -185,7 +185,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>app.cybrid</groupId>
   <artifactId>cybrid-api-id-java</artifactId>
-  <version>v0.104.0</version>
+  <version>v0.104.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -201,7 +201,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "app.cybrid:cybrid-api-id-java:v0.104.0"
+     implementation "app.cybrid:cybrid-api-id-java:v0.104.1"
   }
 ```
 
@@ -215,7 +215,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/cybrid-api-id-java-v0.104.0.jar`
+- `target/cybrid-api-id-java-v0.104.1.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -272,6 +272,7 @@ Class | Method | HTTP request | Description
 *OrganizationApplicationsIdpApi* | [**createOrganizationApplication**](docs/OrganizationApplicationsIdpApi.md#createOrganizationApplication) | **POST** /api/organization_applications | Create organization application
 *OrganizationApplicationsIdpApi* | [**listOrganizationApplications**](docs/OrganizationApplicationsIdpApi.md#listOrganizationApplications) | **GET** /api/organization_applications | List organization applications
 *UsersIdpApi* | [**createUser**](docs/UsersIdpApi.md#createUser) | **POST** /api/users | Create user
+*UsersIdpApi* | [**getUser**](docs/UsersIdpApi.md#getUser) | **GET** /api/users/{user_guid} | Get User
 *UsersIdpApi* | [**listUser**](docs/UsersIdpApi.md#listUser) | **GET** /api/users | List users
 
 
@@ -282,6 +283,7 @@ Class | Method | HTTP request | Description
  - [ApplicationWithSecretAllOfIdpModel](docs/ApplicationWithSecretAllOfIdpModel.md)
  - [ApplicationWithSecretIdpModel](docs/ApplicationWithSecretIdpModel.md)
  - [CustomerTokenIdpModel](docs/CustomerTokenIdpModel.md)
+ - [ErrorResponseIdpModel](docs/ErrorResponseIdpModel.md)
  - [PostBankApplicationIdpModel](docs/PostBankApplicationIdpModel.md)
  - [PostCustomerTokenIdpModel](docs/PostCustomerTokenIdpModel.md)
  - [PostOrganizationApplicationIdpModel](docs/PostOrganizationApplicationIdpModel.md)

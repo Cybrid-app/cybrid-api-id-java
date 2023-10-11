@@ -10,55 +10,57 @@
  * Do not edit the class manually.
  */
 
-package app.cybrid.cybrid_api_id.client;
 
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+package app.cybrid.cybrid_api_id.client.model;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import org.junit.Assert;
+import org.junit.Ignore;
+import org.junit.Test;
+
 
 /**
- * Class that add parsing/formatting support for Java 8+ {@code OffsetDateTime} class.
- * It's generated for java clients when {@code AbstractJavaCodegen#dateLibrary} specified as {@code java8}.
+ * Model tests for ErrorResponseIdpModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-11T22:01:05.045287Z[Etc/UTC]")
-public class JavaTimeFormatter {
-
-    private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+public class ErrorResponseIdpModelTest {
+    private final ErrorResponseIdpModel model = new ErrorResponseIdpModel();
 
     /**
-     * Get the date format used to parse/format {@code OffsetDateTime} parameters.
-     * @return DateTimeFormatter
+     * Model tests for ErrorResponseIdpModel
      */
-    public DateTimeFormatter getOffsetDateTimeFormatter() {
-        return offsetDateTimeFormatter;
+    @Test
+    public void testErrorResponseIdpModel() {
+        // TODO: test ErrorResponseIdpModel
     }
 
     /**
-     * Set the date format used to parse/format {@code OffsetDateTime} parameters.
-     * @param offsetDateTimeFormatter {@code DateTimeFormatter}
+     * Test the property 'status'
      */
-    public void setOffsetDateTimeFormatter(DateTimeFormatter offsetDateTimeFormatter) {
-        this.offsetDateTimeFormatter = offsetDateTimeFormatter;
+    @Test
+    public void statusTest() {
+        // TODO: test status
     }
 
     /**
-     * Parse the given string into {@code OffsetDateTime} object.
-     * @param str String
-     * @return {@code OffsetDateTime}
+     * Test the property 'errorMessage'
      */
-    public OffsetDateTime parseOffsetDateTime(String str) {
-        try {
-            return OffsetDateTime.parse(str, offsetDateTimeFormatter);
-        } catch (DateTimeParseException e) {
-            throw new RuntimeException(e);
-        }
+    @Test
+    public void errorMessageTest() {
+        // TODO: test errorMessage
     }
+
     /**
-     * Format the given {@code OffsetDateTime} object into string.
-     * @param offsetDateTime {@code OffsetDateTime}
-     * @return {@code OffsetDateTime} in string format
+     * Test the property 'messageCode'
      */
-    public String formatOffsetDateTime(OffsetDateTime offsetDateTime) {
-        return offsetDateTimeFormatter.format(offsetDateTime);
+    @Test
+    public void messageCodeTest() {
+        // TODO: test messageCode
     }
+
 }

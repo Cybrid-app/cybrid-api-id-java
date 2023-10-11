@@ -199,7 +199,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.104.0
+  version: v0.104.1
 servers:
 - url: https://id.sandbox.cybrid.app
   variables:
@@ -440,6 +440,70 @@ paths:
       tags:
       - Users
       x-content-type: application/json
+      x-accepts: application/json
+  /api/users/{user_guid}:
+    get:
+      description: "Retrieves a user.\n\nRequired scope: **users:read**"
+      operationId: getUser
+      parameters:
+      - description: Identifier for the user.
+        explode: false
+        in: path
+        name: user_guid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: user found
+        "401":
+          content:
+            application/json:
+              examples:
+                malformed_auth_header:
+                  value:
+                    status: 401
+                    error_message: Authorization header is malformed.
+                    message_code: authentication_malformed
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Unauthorized - Authentication failed, "
+        "403":
+          content:
+            application/json:
+              examples:
+                invalid_scope:
+                  value:
+                    status: 403
+                    error_message: "Invalid scopes. Required: users:read"
+                    message_code: invalid_scopes
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid scope
+        "404":
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error_message: user not found
+                    message_code: not_found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: user not found
+      security:
+      - BearerAuth: []
+        oauth2:
+        - users:read
+      summary: Get User
+      tags:
+      - Users
       x-accepts: application/json
 components:
   schemas:
@@ -703,6 +767,22 @@ components:
           type: string
       required:
       - email
+      type: object
+    ErrorResponse:
+      properties:
+        status:
+          description: Status code for Http Request
+          type: integer
+        error_message:
+          description: Error message
+          type: string
+        message_code:
+          description: Message code for Error
+          type: string
+      required:
+      - error_message
+      - message_code
+      - status
       type: object
     ApplicationWithSecret_allOf:
       properties:

@@ -10,55 +10,165 @@
  * Do not edit the class manually.
  */
 
-package app.cybrid.cybrid_api_id.client;
 
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+package app.cybrid.cybrid_api_id.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * Class that add parsing/formatting support for Java 8+ {@code OffsetDateTime} class.
- * It's generated for java clients when {@code AbstractJavaCodegen#dateLibrary} specified as {@code java8}.
+ * ErrorResponseIdpModel
  */
+@JsonPropertyOrder({
+  ErrorResponseIdpModel.JSON_PROPERTY_STATUS,
+  ErrorResponseIdpModel.JSON_PROPERTY_ERROR_MESSAGE,
+  ErrorResponseIdpModel.JSON_PROPERTY_MESSAGE_CODE
+})
+@JsonTypeName("ErrorResponse")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-11T22:01:05.045287Z[Etc/UTC]")
-public class JavaTimeFormatter {
+public class ErrorResponseIdpModel {
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private java.math.BigInteger status;
 
-    private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+  public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
+  private String errorMessage;
 
-    /**
-     * Get the date format used to parse/format {@code OffsetDateTime} parameters.
-     * @return DateTimeFormatter
-     */
-    public DateTimeFormatter getOffsetDateTimeFormatter() {
-        return offsetDateTimeFormatter;
-    }
+  public static final String JSON_PROPERTY_MESSAGE_CODE = "message_code";
+  private String messageCode;
 
-    /**
-     * Set the date format used to parse/format {@code OffsetDateTime} parameters.
-     * @param offsetDateTimeFormatter {@code DateTimeFormatter}
-     */
-    public void setOffsetDateTimeFormatter(DateTimeFormatter offsetDateTimeFormatter) {
-        this.offsetDateTimeFormatter = offsetDateTimeFormatter;
-    }
+  public ErrorResponseIdpModel() { 
+  }
 
-    /**
-     * Parse the given string into {@code OffsetDateTime} object.
-     * @param str String
-     * @return {@code OffsetDateTime}
-     */
-    public OffsetDateTime parseOffsetDateTime(String str) {
-        try {
-            return OffsetDateTime.parse(str, offsetDateTimeFormatter);
-        } catch (DateTimeParseException e) {
-            throw new RuntimeException(e);
-        }
+  public ErrorResponseIdpModel status(java.math.BigInteger status) {
+    
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Status code for Http Request
+   * @return status
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Status code for Http Request")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.math.BigInteger getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setStatus(java.math.BigInteger status) {
+    this.status = status;
+  }
+
+
+  public ErrorResponseIdpModel errorMessage(String errorMessage) {
+    
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Error message
+   * @return errorMessage
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Error message")
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+
+  public ErrorResponseIdpModel messageCode(String messageCode) {
+    
+    this.messageCode = messageCode;
+    return this;
+  }
+
+   /**
+   * Message code for Error
+   * @return messageCode
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Message code for Error")
+  @JsonProperty(JSON_PROPERTY_MESSAGE_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getMessageCode() {
+    return messageCode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setMessageCode(String messageCode) {
+    this.messageCode = messageCode;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    /**
-     * Format the given {@code OffsetDateTime} object into string.
-     * @param offsetDateTime {@code OffsetDateTime}
-     * @return {@code OffsetDateTime} in string format
-     */
-    public String formatOffsetDateTime(OffsetDateTime offsetDateTime) {
-        return offsetDateTimeFormatter.format(offsetDateTime);
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    ErrorResponseIdpModel errorResponse = (ErrorResponseIdpModel) o;
+    return Objects.equals(this.status, errorResponse.status) &&
+        Objects.equals(this.errorMessage, errorResponse.errorMessage) &&
+        Objects.equals(this.messageCode, errorResponse.messageCode);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(status, errorMessage, messageCode);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ErrorResponseIdpModel {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    messageCode: ").append(toIndentedString(messageCode)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
 }
+

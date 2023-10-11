@@ -2,6 +2,7 @@ package app.cybrid.cybrid_api_id.client.api;
 
 import app.cybrid.cybrid_api_id.client.ApiClient;
 
+import app.cybrid.cybrid_api_id.client.model.ErrorResponseIdpModel;
 import app.cybrid.cybrid_api_id.client.model.PostUserIdpModel;
 import app.cybrid.cybrid_api_id.client.model.UserIdpModel;
 import app.cybrid.cybrid_api_id.client.model.UserListIdpModel;
@@ -27,7 +28,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-11T19:42:18.823555Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-11T22:01:05.045287Z[Etc/UTC]")
 public class UsersIdpApi {
     private ApiClient apiClient;
 
@@ -101,6 +102,66 @@ public class UsersIdpApi {
     public Mono<ResponseEntity<UserIdpModel>> createUserWithHttpInfo(PostUserIdpModel postUserIdpModel) throws WebClientResponseException {
         ParameterizedTypeReference<UserIdpModel> localVarReturnType = new ParameterizedTypeReference<UserIdpModel>() {};
         return createUserRequestCreation(postUserIdpModel).toEntity(localVarReturnType);
+    }
+    /**
+     * Get User
+     * Retrieves a user.  Required scope: **users:read**
+     * <p><b>200</b> - user found
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - user not found
+     * @param userGuid Identifier for the user.
+     * @return UserIdpModel
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    private ResponseSpec getUserRequestCreation(String userGuid) throws WebClientResponseException {
+        Object postBody = null;
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new WebClientResponseException("Missing the required parameter 'userGuid' when calling getUser", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        }
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<String, Object>();
+
+        pathParams.put("user_guid", userGuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = { 
+            "application/json"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] { "BearerAuth", "oauth2" };
+
+        ParameterizedTypeReference<UserIdpModel> localVarReturnType = new ParameterizedTypeReference<UserIdpModel>() {};
+        return apiClient.invokeAPI("/api/users/{user_guid}", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    /**
+     * Get User
+     * Retrieves a user.  Required scope: **users:read**
+     * <p><b>200</b> - user found
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - user not found
+     * @param userGuid Identifier for the user.
+     * @return UserIdpModel
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<UserIdpModel> getUser(String userGuid) throws WebClientResponseException {
+        ParameterizedTypeReference<UserIdpModel> localVarReturnType = new ParameterizedTypeReference<UserIdpModel>() {};
+        return getUserRequestCreation(userGuid).bodyToMono(localVarReturnType);
+    }
+
+    public Mono<ResponseEntity<UserIdpModel>> getUserWithHttpInfo(String userGuid) throws WebClientResponseException {
+        ParameterizedTypeReference<UserIdpModel> localVarReturnType = new ParameterizedTypeReference<UserIdpModel>() {};
+        return getUserRequestCreation(userGuid).toEntity(localVarReturnType);
     }
     /**
      * List users
