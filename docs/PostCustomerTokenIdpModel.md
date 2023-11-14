@@ -36,6 +36,8 @@
 | WORKFLOWS_EXECUTE | &quot;workflows:execute&quot; |
 | DEPOSIT_ADDRESSES_READ | &quot;deposit_addresses:read&quot; |
 | DEPOSIT_ADDRESSES_EXECUTE | &quot;deposit_addresses:execute&quot; |
+| DEPOSIT_BANK_ACCOUNTS_READ | &quot;deposit_bank_accounts:read&quot; |
+| DEPOSIT_BANK_ACCOUNTS_EXECUTE | &quot;deposit_bank_accounts:execute&quot; |
 
 
 

@@ -30,6 +30,8 @@
 | CUSTOMERS_WRITE | &quot;customers:write&quot; |
 | DEPOSIT_ADDRESSES_EXECUTE | &quot;deposit_addresses:execute&quot; |
 | DEPOSIT_ADDRESSES_READ | &quot;deposit_addresses:read&quot; |
+| DEPOSIT_BANK_ACCOUNTS_EXECUTE | &quot;deposit_bank_accounts:execute&quot; |
+| DEPOSIT_BANK_ACCOUNTS_READ | &quot;deposit_bank_accounts:read&quot; |
 | EXTERNAL_BANK_ACCOUNTS_EXECUTE | &quot;external_bank_accounts:execute&quot; |
 | EXTERNAL_BANK_ACCOUNTS_READ | &quot;external_bank_accounts:read&quot; |
 | EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
