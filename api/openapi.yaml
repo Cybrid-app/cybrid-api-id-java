@@ -200,7 +200,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.110.17
+  version: v0.110.18
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -443,6 +443,65 @@ paths:
       x-content-type: application/json
       x-accepts: application/json
   /api/users/{user_guid}:
+    delete:
+      description: "Disables a user. User is not deleted.\n\nRequired scope: **users:execute**"
+      operationId: disableUser
+      parameters:
+      - description: Identifier for the user.
+        explode: false
+        in: path
+        name: user_guid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: User disabled
+        "401":
+          content:
+            application/json:
+              examples:
+                malformed_auth_header:
+                  value:
+                    status: 401
+                    error_message: Authorization header is malformed.
+                    message_code: authentication_malformed
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Unauthorized - Authentication failed, "
+        "403":
+          content:
+            application/json:
+              examples:
+                invalid_scope:
+                  value:
+                    status: 403
+                    error_message: "Invalid scopes. Required: users:execute"
+                    message_code: invalid_scopes
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid scope
+        "404":
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error_message: user not found
+                    message_code: not_found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: user not found
+      security:
+      - BearerAuth: []
+        oauth2:
+        - users:execute
+      summary: Disable User
+      tags:
+      - Users
+      x-accepts: application/json
     get:
       description: "Retrieves a user.\n\nRequired scope: **users:read**"
       operationId: getUser

@@ -28,7 +28,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-22T13:22:01.984825Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-22T19:41:02.316494Z[Etc/UTC]")
 public class UsersIdpApi {
     private ApiClient apiClient;
 
@@ -102,6 +102,64 @@ public class UsersIdpApi {
     public Mono<ResponseEntity<UserIdpModel>> createUserWithHttpInfo(PostUserIdpModel postUserIdpModel) throws WebClientResponseException {
         ParameterizedTypeReference<UserIdpModel> localVarReturnType = new ParameterizedTypeReference<UserIdpModel>() {};
         return createUserRequestCreation(postUserIdpModel).toEntity(localVarReturnType);
+    }
+    /**
+     * Disable User
+     * Disables a user. User is not deleted.  Required scope: **users:execute**
+     * <p><b>204</b> - User disabled
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - user not found
+     * @param userGuid Identifier for the user.
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    private ResponseSpec disableUserRequestCreation(String userGuid) throws WebClientResponseException {
+        Object postBody = null;
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new WebClientResponseException("Missing the required parameter 'userGuid' when calling disableUser", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        }
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<String, Object>();
+
+        pathParams.put("user_guid", userGuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = { 
+            "application/json"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] { "BearerAuth", "oauth2" };
+
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return apiClient.invokeAPI("/api/users/{user_guid}", HttpMethod.DELETE, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    /**
+     * Disable User
+     * Disables a user. User is not deleted.  Required scope: **users:execute**
+     * <p><b>204</b> - User disabled
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - user not found
+     * @param userGuid Identifier for the user.
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<Void> disableUser(String userGuid) throws WebClientResponseException {
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return disableUserRequestCreation(userGuid).bodyToMono(localVarReturnType);
+    }
+
+    public Mono<ResponseEntity<Void>> disableUserWithHttpInfo(String userGuid) throws WebClientResponseException {
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return disableUserRequestCreation(userGuid).toEntity(localVarReturnType);
     }
     /**
      * Get User
