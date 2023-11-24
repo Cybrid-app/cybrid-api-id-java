@@ -200,7 +200,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.110.26
+  version: v0.110.27
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -569,6 +569,7 @@ components:
   schemas:
     Application:
       example:
+        updated_at: 2000-01-23T04:56:07.000+00:00
         name: name
         created_at: 2000-01-23T04:56:07.000+00:00
         scopes:
@@ -621,7 +622,11 @@ components:
             type: string
           type: array
         created_at:
-          description: ISO8601 datetime the application was created at.
+          description: ISO8601 datetime the record was created at.
+          format: date-time
+          type: string
+        updated_at:
+          description: ISO8601 datetime the record was last updated at.
           format: date-time
           type: string
       required:
@@ -639,13 +644,15 @@ components:
         per_page: 1
         total: 0
         objects:
-        - name: name
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          name: name
           created_at: 2000-01-23T04:56:07.000+00:00
           scopes:
           - accounts:execute
           - accounts:execute
           client_id: client_id
-        - name: name
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          name: name
           created_at: 2000-01-23T04:56:07.000+00:00
           scopes:
           - accounts:execute
@@ -694,6 +701,7 @@ components:
       type: object
     User:
       example:
+        updated_at: 2000-01-23T04:56:07.000+00:00
         guid: guid
         created_at: 2000-01-23T04:56:07.000+00:00
         email: email
@@ -715,7 +723,11 @@ components:
           minLength: 1
           type: string
         created_at:
-          description: ISO8601 datetime the application was created at.
+          description: ISO8601 datetime the record was created at.
+          format: date-time
+          type: string
+        updated_at:
+          description: ISO8601 datetime the record was last updated at.
           format: date-time
           type: string
       type: object
@@ -724,11 +736,13 @@ components:
         per_page: 1
         total: 0
         objects:
-        - guid: guid
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          guid: guid
           created_at: 2000-01-23T04:56:07.000+00:00
           email: email
           username: username
-        - guid: guid
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          guid: guid
           created_at: 2000-01-23T04:56:07.000+00:00
           email: email
           username: username
