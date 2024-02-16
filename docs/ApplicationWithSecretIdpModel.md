@@ -38,6 +38,9 @@
 | EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
 | EXTERNAL_WALLETS_EXECUTE | &quot;external_wallets:execute&quot; |
 | EXTERNAL_WALLETS_READ | &quot;external_wallets:read&quot; |
+| INVOICES_EXECUTE | &quot;invoices:execute&quot; |
+| INVOICES_READ | &quot;invoices:read&quot; |
+| INVOICES_WRITE | &quot;invoices:write&quot; |
 | ORGANIZATION_APPLICATIONS_EXECUTE | &quot;organization_applications:execute&quot; |
 | ORGANIZATIONS_READ | &quot;organizations:read&quot; |
 | ORGANIZATIONS_WRITE | &quot;organizations:write&quot; |

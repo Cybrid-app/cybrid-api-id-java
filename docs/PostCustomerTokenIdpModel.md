@@ -38,6 +38,9 @@
 | DEPOSIT_ADDRESSES_EXECUTE | &quot;deposit_addresses:execute&quot; |
 | DEPOSIT_BANK_ACCOUNTS_READ | &quot;deposit_bank_accounts:read&quot; |
 | DEPOSIT_BANK_ACCOUNTS_EXECUTE | &quot;deposit_bank_accounts:execute&quot; |
+| INVOICES_READ | &quot;invoices:read&quot; |
+| INVOICES_WRITE | &quot;invoices:write&quot; |
+| INVOICES_EXECUTE | &quot;invoices:execute&quot; |
 
 
 
