@@ -207,7 +207,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.114.0
+  version: v0.114.2
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -304,6 +304,54 @@ paths:
               schema:
                 $ref: '#/components/schemas/CustomerToken'
           description: Customer token created
+        "401":
+          content:
+            application/json:
+              examples:
+                example_1:
+                  value:
+                    status: 401
+                    error_message: Unauthorized
+                    message_code: unauthorized
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              examples:
+                example_1:
+                  value:
+                    status: 403
+                    error_message: Forbidden
+                    message_code: forbidden
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
+        "422":
+          content:
+            application/json:
+              examples:
+                example_1:
+                  value:
+                    status: 422
+                    error_message: Unknown customer
+                    message_code: no_customer
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity
+        "500":
+          content:
+            application/json:
+              examples:
+                example_1:
+                  value:
+                    status: 500
+                    error_message: Internal server error
+                    message_code: internal_server_error
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
       security:
       - BearerAuth: []
         oauth2:

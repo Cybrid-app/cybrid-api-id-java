@@ -3,6 +3,7 @@ package app.cybrid.cybrid_api_id.client.api;
 import app.cybrid.cybrid_api_id.client.ApiClient;
 
 import app.cybrid.cybrid_api_id.client.model.CustomerTokenIdpModel;
+import app.cybrid.cybrid_api_id.client.model.ErrorResponseIdpModel;
 import app.cybrid.cybrid_api_id.client.model.PostCustomerTokenIdpModel;
 
 import java.util.HashMap;
@@ -26,7 +27,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-16T17:26:10.493983Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-20T16:47:40.329963Z[Etc/UTC]")
 public class CustomerTokensIdpApi {
     private ApiClient apiClient;
 
@@ -51,6 +52,10 @@ public class CustomerTokensIdpApi {
      * Create customer access token
      * Creates a customer JWT access token.  Required scopes: **customers:write** and **customers:read**
      * <p><b>201</b> - Customer token created
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>422</b> - Unprocessable Entity
+     * <p><b>500</b> - Internal Server Error
      * @param postCustomerTokenIdpModel The postCustomerTokenIdpModel parameter
      * @return CustomerTokenIdpModel
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
@@ -88,6 +93,10 @@ public class CustomerTokensIdpApi {
      * Create customer access token
      * Creates a customer JWT access token.  Required scopes: **customers:write** and **customers:read**
      * <p><b>201</b> - Customer token created
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>422</b> - Unprocessable Entity
+     * <p><b>500</b> - Internal Server Error
      * @param postCustomerTokenIdpModel The postCustomerTokenIdpModel parameter
      * @return CustomerTokenIdpModel
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
