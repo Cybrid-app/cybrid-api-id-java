@@ -84,5 +84,4 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
 

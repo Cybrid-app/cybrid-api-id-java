@@ -207,7 +207,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.114.9
+  version: v0.114.10
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -340,18 +340,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Unprocessable Entity
-        "500":
-          content:
-            application/json:
-              examples:
-                example_1:
-                  value:
-                    status: 500
-                    error_message: Internal server error
-                    message_code: internal_server_error
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Internal Server Error
       security:
       - BearerAuth: []
         oauth2:
