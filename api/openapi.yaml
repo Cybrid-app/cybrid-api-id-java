@@ -207,13 +207,74 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.115.8
+  version: v0.115.10
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
 - description: Production environment is for public use and uses real money movement
   url: https://id.production.cybrid.app
 paths:
+  /api/applications/{client_id}:
+    delete:
+      description: "Discards an application. Application is not deleted, all access\
+        \ tokens are revoked.Required scope: **organization_applications:execute**"
+      operationId: discardApplication
+      parameters:
+      - description: Identifier for the application.
+        explode: false
+        in: path
+        name: client_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Application disacarded
+        "401":
+          content:
+            application/json:
+              examples:
+                malformed_auth_header:
+                  value:
+                    status: 401
+                    error_message: Authorization header is malformed.
+                    message_code: authentication_malformed
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Unauthorized - Authentication failed, "
+        "403":
+          content:
+            application/json:
+              examples:
+                invalid_scope:
+                  value:
+                    status: 403
+                    error_message: "Invalid scopes. Required: organization_applications:execute"
+                    message_code: invalid_scopes
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid scope
+        "404":
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error_message: application not found
+                    message_code: not_found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: application not found
+      security:
+      - BearerAuth: []
+        oauth2:
+        - organization_applications:execute
+      summary: Discard Application
+      tags:
+      - Applications
+      x-accepts: application/json
   /api/bank_applications:
     get:
       description: "Retrieve a list of bank OAuth2 applications.\n\nRequired scope:\

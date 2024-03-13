@@ -2,9 +2,9 @@
 
 Cybrid Identity API
 
-- API version: v0.115.8
+- API version: v0.115.10
 
-- Build date: 2024-03-11T17:16:49.910373Z[Etc/UTC]
+- Build date: 2024-03-13T14:18:39.141380Z[Etc/UTC]
 
 # Cybrid API documentation
 
@@ -188,7 +188,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>app.cybrid</groupId>
   <artifactId>cybrid-api-id-java</artifactId>
-  <version>v0.115.8</version>
+  <version>v0.115.10</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -204,7 +204,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "app.cybrid:cybrid-api-id-java:v0.115.8"
+     implementation "app.cybrid:cybrid-api-id-java:v0.115.10"
   }
 ```
 
@@ -218,7 +218,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/cybrid-api-id-java-v0.115.8.jar`
+- `target/cybrid-api-id-java-v0.115.10.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -230,9 +230,9 @@ Please follow the [installation](#installation) instruction and execute the foll
 import app.cybrid.cybrid_api_id.client.*;
 import app.cybrid.cybrid_api_id.client.auth.*;
 import app.cybrid.cybrid_api_id.client.model.*;
-import app.cybrid.cybrid_api_id.client.api.BankApplicationsIdpApi;
+import app.cybrid.cybrid_api_id.client.api.ApplicationsIdpApi;
 
-public class BankApplicationsIdpApiExample {
+public class ApplicationsIdpApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -246,13 +246,12 @@ public class BankApplicationsIdpApiExample {
         OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
         oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-        BankApplicationsIdpApi apiInstance = new BankApplicationsIdpApi(defaultClient);
-        PostBankApplicationIdpModel postBankApplicationIdpModel = new PostBankApplicationIdpModel(); // PostBankApplicationIdpModel | 
+        ApplicationsIdpApi apiInstance = new ApplicationsIdpApi(defaultClient);
+        String clientId = "clientId_example"; // String | Identifier for the application.
         try {
-            ApplicationWithSecretIdpModel result = apiInstance.createBankApplication(postBankApplicationIdpModel);
-            System.out.println(result);
+            apiInstance.discardApplication(clientId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BankApplicationsIdpApi#createBankApplication");
+            System.err.println("Exception when calling ApplicationsIdpApi#discardApplication");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -269,6 +268,7 @@ All URIs are relative to *https://id.sandbox.cybrid.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApplicationsIdpApi* | [**discardApplication**](docs/ApplicationsIdpApi.md#discardApplication) | **DELETE** /api/applications/{client_id} | Discard Application
 *BankApplicationsIdpApi* | [**createBankApplication**](docs/BankApplicationsIdpApi.md#createBankApplication) | **POST** /api/bank_applications | Create bank application
 *BankApplicationsIdpApi* | [**listBankApplications**](docs/BankApplicationsIdpApi.md#listBankApplications) | **GET** /api/bank_applications | List bank applications
 *CustomerTokensIdpApi* | [**createCustomerToken**](docs/CustomerTokensIdpApi.md#createCustomerToken) | **POST** /api/customer_tokens | Create customer access token

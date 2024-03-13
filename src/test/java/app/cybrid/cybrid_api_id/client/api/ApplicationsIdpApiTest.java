@@ -10,55 +10,39 @@
  * Do not edit the class manually.
  */
 
-package app.cybrid.cybrid_api_id.client;
 
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+package app.cybrid.cybrid_api_id.client.api;
+
+import app.cybrid.cybrid_api_id.client.model.ErrorResponseIdpModel;
+import org.junit.Test;
+import org.junit.Ignore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
- * Class that add parsing/formatting support for Java 8+ {@code OffsetDateTime} class.
- * It's generated for java clients when {@code AbstractJavaCodegen#dateLibrary} specified as {@code java8}.
+ * API tests for ApplicationsIdpApi
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-13T14:18:39.141380Z[Etc/UTC]")
-public class JavaTimeFormatter {
+@Ignore
+public class ApplicationsIdpApiTest {
 
-    private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+    private final ApplicationsIdpApi api = new ApplicationsIdpApi();
 
+    
     /**
-     * Get the date format used to parse/format {@code OffsetDateTime} parameters.
-     * @return DateTimeFormatter
+     * Discard Application
+     *
+     * Discards an application. Application is not deleted, all access tokens are revoked.Required scope: **organization_applications:execute**
      */
-    public DateTimeFormatter getOffsetDateTimeFormatter() {
-        return offsetDateTimeFormatter;
-    }
+    @Test
+    public void discardApplicationTest()  {
+        String clientId = null;
+        api.discardApplication(clientId).block();
 
-    /**
-     * Set the date format used to parse/format {@code OffsetDateTime} parameters.
-     * @param offsetDateTimeFormatter {@code DateTimeFormatter}
-     */
-    public void setOffsetDateTimeFormatter(DateTimeFormatter offsetDateTimeFormatter) {
-        this.offsetDateTimeFormatter = offsetDateTimeFormatter;
+        // TODO: test validations
     }
-
-    /**
-     * Parse the given string into {@code OffsetDateTime} object.
-     * @param str String
-     * @return {@code OffsetDateTime}
-     */
-    public OffsetDateTime parseOffsetDateTime(String str) {
-        try {
-            return OffsetDateTime.parse(str, offsetDateTimeFormatter);
-        } catch (DateTimeParseException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    /**
-     * Format the given {@code OffsetDateTime} object into string.
-     * @param offsetDateTime {@code OffsetDateTime}
-     * @return {@code OffsetDateTime} in string format
-     */
-    public String formatOffsetDateTime(OffsetDateTime offsetDateTime) {
-        return offsetDateTimeFormatter.format(offsetDateTime);
-    }
+    
 }
