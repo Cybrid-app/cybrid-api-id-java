@@ -47,6 +47,9 @@
 | PRICES_READ | &quot;prices:read&quot; |
 | QUOTES_EXECUTE | &quot;quotes:execute&quot; |
 | QUOTES_READ | &quot;quotes:read&quot; |
+| SUBSCRIPTIONS_EXECUTE | &quot;subscriptions:execute&quot; |
+| SUBSCRIPTIONS_READ | &quot;subscriptions:read&quot; |
+| SUBSCRIPTIONS_WRITE | &quot;subscriptions:write&quot; |
 | TRADES_EXECUTE | &quot;trades:execute&quot; |
 | TRADES_READ | &quot;trades:read&quot; |
 | TRANSFERS_EXECUTE | &quot;transfers:execute&quot; |
