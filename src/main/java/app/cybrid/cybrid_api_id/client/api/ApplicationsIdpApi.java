@@ -25,7 +25,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-14T18:28:34.029774Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-15T12:48:18.733556Z[Etc/UTC]")
 public class ApplicationsIdpApi {
     private ApiClient apiClient;
 
@@ -47,20 +47,20 @@ public class ApplicationsIdpApi {
     }
 
     /**
-     * Discard Application
-     * Discards an application. Application is not deleted, all access tokens are revoked.Required scope: **organization_applications:execute**
-     * <p><b>204</b> - Application disacarded
-     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * Delete Application
+     * Deletes an application.Required scope: **bank_applications:execute**
+     * <p><b>204</b> - Application discarded
      * <p><b>403</b> - Invalid scope
      * <p><b>404</b> - application not found
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
      * @param clientId Identifier for the application.
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec discardApplicationRequestCreation(String clientId) throws WebClientResponseException {
+    private ResponseSpec deleteBankApplicationRequestCreation(String clientId) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'clientId' is set
         if (clientId == null) {
-            throw new WebClientResponseException("Missing the required parameter 'clientId' when calling discardApplication", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new WebClientResponseException("Missing the required parameter 'clientId' when calling deleteBankApplication", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -82,12 +82,31 @@ public class ApplicationsIdpApi {
         String[] localVarAuthNames = new String[] { "BearerAuth", "oauth2" };
 
         ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
-        return apiClient.invokeAPI("/api/applications/{client_id}", HttpMethod.DELETE, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+        return apiClient.invokeAPI("/api/bank_applications/{client_id}", HttpMethod.DELETE, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     }
 
     /**
-     * Discard Application
-     * Discards an application. Application is not deleted, all access tokens are revoked.Required scope: **organization_applications:execute**
+     * Delete Application
+     * Deletes an application.Required scope: **bank_applications:execute**
+     * <p><b>204</b> - Application discarded
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - application not found
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * @param clientId Identifier for the application.
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<Void> deleteBankApplication(String clientId) throws WebClientResponseException {
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return deleteBankApplicationRequestCreation(clientId).bodyToMono(localVarReturnType);
+    }
+
+    public Mono<ResponseEntity<Void>> deleteBankApplicationWithHttpInfo(String clientId) throws WebClientResponseException {
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return deleteBankApplicationRequestCreation(clientId).toEntity(localVarReturnType);
+    }
+    /**
+     * Delete Application
+     * Deletes an application.Required scope: **organization_applications:execute**
      * <p><b>204</b> - Application disacarded
      * <p><b>401</b> - Unauthorized - Authentication failed, 
      * <p><b>403</b> - Invalid scope
@@ -95,13 +114,52 @@ public class ApplicationsIdpApi {
      * @param clientId Identifier for the application.
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Void> discardApplication(String clientId) throws WebClientResponseException {
+    private ResponseSpec deleteOrganizationApplicationRequestCreation(String clientId) throws WebClientResponseException {
+        Object postBody = null;
+        // verify the required parameter 'clientId' is set
+        if (clientId == null) {
+            throw new WebClientResponseException("Missing the required parameter 'clientId' when calling deleteOrganizationApplication", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        }
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<String, Object>();
+
+        pathParams.put("client_id", clientId);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = { 
+            "application/json"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] { "BearerAuth", "oauth2" };
+
         ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
-        return discardApplicationRequestCreation(clientId).bodyToMono(localVarReturnType);
+        return apiClient.invokeAPI("/api/organization_applications/{client_id}", HttpMethod.DELETE, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     }
 
-    public Mono<ResponseEntity<Void>> discardApplicationWithHttpInfo(String clientId) throws WebClientResponseException {
+    /**
+     * Delete Application
+     * Deletes an application.Required scope: **organization_applications:execute**
+     * <p><b>204</b> - Application disacarded
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - application not found
+     * @param clientId Identifier for the application.
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<Void> deleteOrganizationApplication(String clientId) throws WebClientResponseException {
         ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
-        return discardApplicationRequestCreation(clientId).toEntity(localVarReturnType);
+        return deleteOrganizationApplicationRequestCreation(clientId).bodyToMono(localVarReturnType);
+    }
+
+    public Mono<ResponseEntity<Void>> deleteOrganizationApplicationWithHttpInfo(String clientId) throws WebClientResponseException {
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return deleteOrganizationApplicationRequestCreation(clientId).toEntity(localVarReturnType);
     }
 }

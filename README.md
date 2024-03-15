@@ -2,9 +2,9 @@
 
 Cybrid Identity API
 
-- API version: v0.115.14
+- API version: v0.115.15
 
-- Build date: 2024-03-14T18:28:34.029774Z[Etc/UTC]
+- Build date: 2024-03-15T12:48:18.733556Z[Etc/UTC]
 
 # Cybrid API documentation
 
@@ -188,7 +188,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>app.cybrid</groupId>
   <artifactId>cybrid-api-id-java</artifactId>
-  <version>v0.115.14</version>
+  <version>v0.115.15</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -204,7 +204,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "app.cybrid:cybrid-api-id-java:v0.115.14"
+     implementation "app.cybrid:cybrid-api-id-java:v0.115.15"
   }
 ```
 
@@ -218,7 +218,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/cybrid-api-id-java-v0.115.14.jar`
+- `target/cybrid-api-id-java-v0.115.15.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -249,9 +249,9 @@ public class ApplicationsIdpApiExample {
         ApplicationsIdpApi apiInstance = new ApplicationsIdpApi(defaultClient);
         String clientId = "clientId_example"; // String | Identifier for the application.
         try {
-            apiInstance.discardApplication(clientId);
+            apiInstance.deleteBankApplication(clientId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApplicationsIdpApi#discardApplication");
+            System.err.println("Exception when calling ApplicationsIdpApi#deleteBankApplication");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -268,7 +268,8 @@ All URIs are relative to *https://id.sandbox.cybrid.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ApplicationsIdpApi* | [**discardApplication**](docs/ApplicationsIdpApi.md#discardApplication) | **DELETE** /api/applications/{client_id} | Discard Application
+*ApplicationsIdpApi* | [**deleteBankApplication**](docs/ApplicationsIdpApi.md#deleteBankApplication) | **DELETE** /api/bank_applications/{client_id} | Delete Application
+*ApplicationsIdpApi* | [**deleteOrganizationApplication**](docs/ApplicationsIdpApi.md#deleteOrganizationApplication) | **DELETE** /api/organization_applications/{client_id} | Delete Application
 *BankApplicationsIdpApi* | [**createBankApplication**](docs/BankApplicationsIdpApi.md#createBankApplication) | **POST** /api/bank_applications | Create bank application
 *BankApplicationsIdpApi* | [**listBankApplications**](docs/BankApplicationsIdpApi.md#listBankApplications) | **GET** /api/bank_applications | List bank applications
 *CustomerTokensIdpApi* | [**createCustomerToken**](docs/CustomerTokensIdpApi.md#createCustomerToken) | **POST** /api/customer_tokens | Create customer access token
