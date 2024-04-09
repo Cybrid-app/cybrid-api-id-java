@@ -2,9 +2,9 @@
 
 Cybrid Identity API
 
-- API version: v0.115.71
+- API version: v0.115.72
 
-- Build date: 2024-04-09T15:35:13.508922Z[Etc/UTC]
+- Build date: 2024-04-09T17:02:52.277101Z[Etc/UTC]
 
 # Cybrid API documentation
 
@@ -188,7 +188,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>app.cybrid</groupId>
   <artifactId>cybrid-api-id-java</artifactId>
-  <version>v0.115.71</version>
+  <version>v0.115.72</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -204,7 +204,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "app.cybrid:cybrid-api-id-java:v0.115.71"
+     implementation "app.cybrid:cybrid-api-id-java:v0.115.72"
   }
 ```
 
@@ -218,7 +218,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/cybrid-api-id-java-v0.115.71.jar`
+- `target/cybrid-api-id-java-v0.115.72.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -230,9 +230,9 @@ Please follow the [installation](#installation) instruction and execute the foll
 import app.cybrid.cybrid_api_id.client.*;
 import app.cybrid.cybrid_api_id.client.auth.*;
 import app.cybrid.cybrid_api_id.client.model.*;
-import app.cybrid.cybrid_api_id.client.api.ApplicationsIdpApi;
+import app.cybrid.cybrid_api_id.client.api.BankApplicationsIdpApi;
 
-public class ApplicationsIdpApiExample {
+public class BankApplicationsIdpApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -246,12 +246,13 @@ public class ApplicationsIdpApiExample {
         OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
         oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-        ApplicationsIdpApi apiInstance = new ApplicationsIdpApi(defaultClient);
-        String clientId = "clientId_example"; // String | Identifier for the application.
+        BankApplicationsIdpApi apiInstance = new BankApplicationsIdpApi(defaultClient);
+        PostBankApplicationIdpModel postBankApplicationIdpModel = new PostBankApplicationIdpModel(); // PostBankApplicationIdpModel | 
         try {
-            apiInstance.deleteBankApplication(clientId);
+            ApplicationWithSecretIdpModel result = apiInstance.createBankApplication(postBankApplicationIdpModel);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApplicationsIdpApi#deleteBankApplication");
+            System.err.println("Exception when calling BankApplicationsIdpApi#createBankApplication");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -268,12 +269,12 @@ All URIs are relative to *https://id.sandbox.cybrid.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ApplicationsIdpApi* | [**deleteBankApplication**](docs/ApplicationsIdpApi.md#deleteBankApplication) | **DELETE** /api/bank_applications/{client_id} | Delete Application
-*ApplicationsIdpApi* | [**deleteOrganizationApplication**](docs/ApplicationsIdpApi.md#deleteOrganizationApplication) | **DELETE** /api/organization_applications/{client_id} | Delete Application
 *BankApplicationsIdpApi* | [**createBankApplication**](docs/BankApplicationsIdpApi.md#createBankApplication) | **POST** /api/bank_applications | Create bank application
+*BankApplicationsIdpApi* | [**deleteBankApplication**](docs/BankApplicationsIdpApi.md#deleteBankApplication) | **DELETE** /api/bank_applications/{client_id} | Delete bank application
 *BankApplicationsIdpApi* | [**listBankApplications**](docs/BankApplicationsIdpApi.md#listBankApplications) | **GET** /api/bank_applications | List bank applications
 *CustomerTokensIdpApi* | [**createCustomerToken**](docs/CustomerTokensIdpApi.md#createCustomerToken) | **POST** /api/customer_tokens | Create customer access token
 *OrganizationApplicationsIdpApi* | [**createOrganizationApplication**](docs/OrganizationApplicationsIdpApi.md#createOrganizationApplication) | **POST** /api/organization_applications | Create organization application
+*OrganizationApplicationsIdpApi* | [**deleteOrganizationApplication**](docs/OrganizationApplicationsIdpApi.md#deleteOrganizationApplication) | **DELETE** /api/organization_applications/{client_id} | Delete organization application
 *OrganizationApplicationsIdpApi* | [**listOrganizationApplications**](docs/OrganizationApplicationsIdpApi.md#listOrganizationApplications) | **GET** /api/organization_applications | List organization applications
 *UsersIdpApi* | [**createUser**](docs/UsersIdpApi.md#createUser) | **POST** /api/users | Create user
 *UsersIdpApi* | [**disableUser**](docs/UsersIdpApi.md#disableUser) | **DELETE** /api/users/{user_guid} | Disable User

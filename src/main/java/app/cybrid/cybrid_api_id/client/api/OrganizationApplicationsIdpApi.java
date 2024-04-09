@@ -4,6 +4,7 @@ import app.cybrid.cybrid_api_id.client.ApiClient;
 
 import app.cybrid.cybrid_api_id.client.model.ApplicationListIdpModel;
 import app.cybrid.cybrid_api_id.client.model.ApplicationWithSecretIdpModel;
+import app.cybrid.cybrid_api_id.client.model.ErrorResponseIdpModel;
 import app.cybrid.cybrid_api_id.client.model.PostOrganizationApplicationIdpModel;
 
 import java.util.HashMap;
@@ -27,7 +28,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-09T15:35:13.508922Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-09T17:02:52.277101Z[Etc/UTC]")
 public class OrganizationApplicationsIdpApi {
     private ApiClient apiClient;
 
@@ -101,6 +102,64 @@ public class OrganizationApplicationsIdpApi {
     public Mono<ResponseEntity<ApplicationWithSecretIdpModel>> createOrganizationApplicationWithHttpInfo(PostOrganizationApplicationIdpModel postOrganizationApplicationIdpModel) throws WebClientResponseException {
         ParameterizedTypeReference<ApplicationWithSecretIdpModel> localVarReturnType = new ParameterizedTypeReference<ApplicationWithSecretIdpModel>() {};
         return createOrganizationApplicationRequestCreation(postOrganizationApplicationIdpModel).toEntity(localVarReturnType);
+    }
+    /**
+     * Delete organization application
+     * Deletes an application.Required scope: **organization_applications:execute**
+     * <p><b>204</b> - Application disacarded
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - application not found
+     * @param clientId Identifier for the application.
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    private ResponseSpec deleteOrganizationApplicationRequestCreation(String clientId) throws WebClientResponseException {
+        Object postBody = null;
+        // verify the required parameter 'clientId' is set
+        if (clientId == null) {
+            throw new WebClientResponseException("Missing the required parameter 'clientId' when calling deleteOrganizationApplication", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        }
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<String, Object>();
+
+        pathParams.put("client_id", clientId);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = { 
+            "application/json"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] { "BearerAuth", "oauth2" };
+
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return apiClient.invokeAPI("/api/organization_applications/{client_id}", HttpMethod.DELETE, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    /**
+     * Delete organization application
+     * Deletes an application.Required scope: **organization_applications:execute**
+     * <p><b>204</b> - Application disacarded
+     * <p><b>401</b> - Unauthorized - Authentication failed, 
+     * <p><b>403</b> - Invalid scope
+     * <p><b>404</b> - application not found
+     * @param clientId Identifier for the application.
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<Void> deleteOrganizationApplication(String clientId) throws WebClientResponseException {
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return deleteOrganizationApplicationRequestCreation(clientId).bodyToMono(localVarReturnType);
+    }
+
+    public Mono<ResponseEntity<Void>> deleteOrganizationApplicationWithHttpInfo(String clientId) throws WebClientResponseException {
+        ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<Void>() {};
+        return deleteOrganizationApplicationRequestCreation(clientId).toEntity(localVarReturnType);
     }
     /**
      * List organization applications

@@ -208,7 +208,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.115.71
+  version: v0.115.72
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -342,9 +342,9 @@ paths:
       - BearerAuth: []
         oauth2:
         - bank_applications:execute
-      summary: Delete Application
+      summary: Delete bank application
       tags:
-      - Applications
+      - Bank Applications
       x-accepts: application/json
   /api/customer_tokens:
     post:
@@ -530,9 +530,9 @@ paths:
       - BearerAuth: []
         oauth2:
         - organization_applications:execute
-      summary: Delete Application
+      summary: Delete organization application
       tags:
-      - Applications
+      - Organization Applications
       x-accepts: application/json
   /api/users:
     get:
