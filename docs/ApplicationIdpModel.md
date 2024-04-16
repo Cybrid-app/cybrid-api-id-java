@@ -25,6 +25,9 @@
 | BANKS_EXECUTE | &quot;banks:execute&quot; |
 | BANKS_READ | &quot;banks:read&quot; |
 | BANKS_WRITE | &quot;banks:write&quot; |
+| COUNTERPARTIES_EXECUTE | &quot;counterparties:execute&quot; |
+| COUNTERPARTIES_READ | &quot;counterparties:read&quot; |
+| COUNTERPARTIES_WRITE | &quot;counterparties:write&quot; |
 | CUSTOMERS_EXECUTE | &quot;customers:execute&quot; |
 | CUSTOMERS_READ | &quot;customers:read&quot; |
 | CUSTOMERS_WRITE | &quot;customers:write&quot; |

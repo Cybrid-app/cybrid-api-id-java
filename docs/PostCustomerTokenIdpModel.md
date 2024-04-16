@@ -16,6 +16,8 @@
 
 | Name | Value |
 |---- | -----|
+| COUNTERPARTIES_READ | &quot;counterparties:read&quot; |
+| COUNTERPARTIES_WRITE | &quot;counterparties:write&quot; |
 | CUSTOMERS_READ | &quot;customers:read&quot; |
 | CUSTOMERS_WRITE | &quot;customers:write&quot; |
 | ACCOUNTS_READ | &quot;accounts:read&quot; |
