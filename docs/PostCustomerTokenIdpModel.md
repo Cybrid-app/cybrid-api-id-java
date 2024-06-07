@@ -18,6 +18,7 @@
 |---- | -----|
 | COUNTERPARTIES_READ | &quot;counterparties:read&quot; |
 | COUNTERPARTIES_WRITE | &quot;counterparties:write&quot; |
+| COUNTERPARTIES_EXECUTE | &quot;counterparties:execute&quot; |
 | CUSTOMERS_READ | &quot;customers:read&quot; |
 | CUSTOMERS_WRITE | &quot;customers:write&quot; |
 | ACCOUNTS_READ | &quot;accounts:read&quot; |
@@ -43,6 +44,9 @@
 | INVOICES_READ | &quot;invoices:read&quot; |
 | INVOICES_WRITE | &quot;invoices:write&quot; |
 | INVOICES_EXECUTE | &quot;invoices:execute&quot; |
+| IDENTITY_VERIFICATIONS_READ | &quot;identity_verifications:read&quot; |
+| IDENTITY_VERIFICATIONS_WRITE | &quot;identity_verifications:write&quot; |
+| IDENTITY_VERIFICATIONS_EXECUTE | &quot;identity_verifications:execute&quot; |
 
 
 
