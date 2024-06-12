@@ -83,5 +83,5 @@ public class Example {
 | **201** | Customer token created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **422** | Unprocessable Entity |  -  |
+| **422** | Unprocessable Content |  -  |
 
