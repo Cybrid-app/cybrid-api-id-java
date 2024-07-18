@@ -215,7 +215,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.118.80
+  version: v0.118.85
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -1077,6 +1077,9 @@ components:
             users:execute: users execute
             customers:write: customers write
             customers:read: customers read
+            subscriptions:read: subscriptions read
+            subscriptions:write: subscriptions write
+            subscriptions:execute: subscriptions execute
           tokenUrl: https://id.production.cybrid.app/oauth/token
       type: oauth2
     BearerAuth:
