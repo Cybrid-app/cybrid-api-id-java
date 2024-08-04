@@ -53,6 +53,8 @@
 | PRICES_READ | &quot;prices:read&quot; |
 | QUOTES_EXECUTE | &quot;quotes:execute&quot; |
 | QUOTES_READ | &quot;quotes:read&quot; |
+| SUBSCRIPTION_EVENTS_EXECUTE | &quot;subscription_events:execute&quot; |
+| SUBSCRIPTION_EVENTS_READ | &quot;subscription_events:read&quot; |
 | SUBSCRIPTIONS_EXECUTE | &quot;subscriptions:execute&quot; |
 | SUBSCRIPTIONS_READ | &quot;subscriptions:read&quot; |
 | SUBSCRIPTIONS_WRITE | &quot;subscriptions:write&quot; |
