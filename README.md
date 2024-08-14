@@ -2,9 +2,9 @@
 
 Cybrid Identity API
 
-- API version: v0.119.17
+- API version: v0.119.18
 
-- Build date: 2024-08-13T21:32:41.455844Z[Etc/UTC]
+- Build date: 2024-08-14T13:11:12.298820Z[Etc/UTC]
 
 # Cybrid API documentation
 
@@ -190,7 +190,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>app.cybrid</groupId>
   <artifactId>cybrid-api-id-java</artifactId>
-  <version>v0.119.17</version>
+  <version>v0.119.18</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -206,7 +206,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "app.cybrid:cybrid-api-id-java:v0.119.17"
+     implementation "app.cybrid:cybrid-api-id-java:v0.119.18"
   }
 ```
 
@@ -220,7 +220,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/cybrid-api-id-java-v0.119.17.jar`
+- `target/cybrid-api-id-java-v0.119.18.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
