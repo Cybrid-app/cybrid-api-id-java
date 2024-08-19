@@ -216,7 +216,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.119.31
+  version: v0.119.32
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -377,6 +377,31 @@ paths:
           content:
             application/json:
               examples:
+                invalid_subject:
+                  value:
+                    status: 401
+                    error_message: "Invalid Subject type. Required: bank"
+                    message_code: invalid_subject
+                invalid_signature:
+                  value:
+                    status: 401
+                    error_message: Signature verification raised
+                    message_code: authentication_failed
+                invalid_audience:
+                  value:
+                    status: 401
+                    error_message: Invalid audience
+                    message_code: authentication_failed
+                invalid_issuer:
+                  value:
+                    status: 401
+                    error_message: Invalid issuer
+                    message_code: authentication_failed
+                expired_signature:
+                  value:
+                    status: 401
+                    error_message: Signature has expired
+                    message_code: authentication_failed
                 unauthorized:
                   value:
                     status: 401
@@ -389,6 +414,11 @@ paths:
           content:
             application/json:
               examples:
+                invalid_scope:
+                  value:
+                    status: 403
+                    error_message: "Invalid scopes. Required: customers:write"
+                    message_code: invalid_scopes
                 forbidden:
                   value:
                     status: 403
