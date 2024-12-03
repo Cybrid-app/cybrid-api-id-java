@@ -211,7 +211,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.123.12
+  version: v0.123.46
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -916,6 +916,9 @@ components:
         guid: guid
         created_at: 2000-01-23T04:56:07.000+00:00
         email: email
+        allowed_scopes:
+        - organizations:read
+        - organizations:read
         username: username
       properties:
         guid:
@@ -933,6 +936,63 @@ components:
           maxLength: 254
           minLength: 1
           type: string
+        allowed_scopes:
+          description: The list of scopes that the user is allowed to request.
+          items:
+            enum:
+            - organizations:read
+            - organizations:write
+            - organization_applications:execute
+            - banks:read
+            - banks:write
+            - banks:execute
+            - bank_applications:execute
+            - users:read
+            - users:execute
+            - accounts:read
+            - accounts:execute
+            - counterparties:read
+            - counterparties:write
+            - counterparties:execute
+            - customers:read
+            - customers:write
+            - customers:execute
+            - prices:read
+            - quotes:execute
+            - quotes:read
+            - trades:execute
+            - trades:read
+            - transfers:execute
+            - transfers:read
+            - external_bank_accounts:read
+            - external_bank_accounts:write
+            - external_bank_accounts:execute
+            - external_wallets:read
+            - external_wallets:execute
+            - workflows:read
+            - workflows:execute
+            - deposit_addresses:read
+            - deposit_addresses:execute
+            - deposit_bank_accounts:read
+            - deposit_bank_accounts:execute
+            - invoices:read
+            - invoices:write
+            - invoices:execute
+            - subscriptions:read
+            - subscriptions:write
+            - subscriptions:execute
+            - subscription_events:read
+            - subscription_events:execute
+            - identity_verifications:read
+            - identity_verifications:write
+            - identity_verifications:execute
+            - openid
+            - profile
+            - email
+            type: string
+          nullable: true
+          type: array
+          uniqueItems: true
         created_at:
           description: ISO8601 datetime the record was created at.
           format: date-time
@@ -951,11 +1011,17 @@ components:
           guid: guid
           created_at: 2000-01-23T04:56:07.000+00:00
           email: email
+          allowed_scopes:
+          - organizations:read
+          - organizations:read
           username: username
         - updated_at: 2000-01-23T04:56:07.000+00:00
           guid: guid
           created_at: 2000-01-23T04:56:07.000+00:00
           email: email
+          allowed_scopes:
+          - organizations:read
+          - organizations:read
           username: username
         page: 0
       properties:
