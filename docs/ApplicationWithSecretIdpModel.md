@@ -41,6 +41,8 @@
 | EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
 | EXTERNAL_WALLETS_EXECUTE | &quot;external_wallets:execute&quot; |
 | EXTERNAL_WALLETS_READ | &quot;external_wallets:read&quot; |
+| FILES_EXECUTE | &quot;files:execute&quot; |
+| FILES_READ | &quot;files:read&quot; |
 | IDENTITY_VERIFICATIONS_EXECUTE | &quot;identity_verifications:execute&quot; |
 | IDENTITY_VERIFICATIONS_READ | &quot;identity_verifications:read&quot; |
 | IDENTITY_VERIFICATIONS_WRITE | &quot;identity_verifications:write&quot; |

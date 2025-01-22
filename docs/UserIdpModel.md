@@ -66,6 +66,8 @@
 | IDENTITY_VERIFICATIONS_READ | &quot;identity_verifications:read&quot; |
 | IDENTITY_VERIFICATIONS_WRITE | &quot;identity_verifications:write&quot; |
 | IDENTITY_VERIFICATIONS_EXECUTE | &quot;identity_verifications:execute&quot; |
+| FILES_READ | &quot;files:read&quot; |
+| FILES_EXECUTE | &quot;files:execute&quot; |
 | OPENID | &quot;openid&quot; |
 | PROFILE | &quot;profile&quot; |
 | EMAIL | &quot;email&quot; |
