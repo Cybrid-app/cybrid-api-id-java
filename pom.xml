@@ -5,7 +5,7 @@
     <artifactId>cybrid-api-id-java</artifactId>
     <packaging>jar</packaging>
     <name>cybrid-api-id-java</name>
-    <version>v0.123.256</version>
+    <version>v0.123.257</version>
     <url>https://github.com/Cybrid-app/cybrid-api-id-java/</url>
     <description>OpenAPI Java</description>
     <scm>
