@@ -63,6 +63,7 @@
 | TRADES_READ | &quot;trades:read&quot; |
 | TRANSFERS_EXECUTE | &quot;transfers:execute&quot; |
 | TRANSFERS_READ | &quot;transfers:read&quot; |
+| TRANSFERS_WRITE | &quot;transfers:write&quot; |
 | USERS_EXECUTE | &quot;users:execute&quot; |
 | USERS_READ | &quot;users:read&quot; |
 | WORKFLOWS_EXECUTE | &quot;workflows:execute&quot; |

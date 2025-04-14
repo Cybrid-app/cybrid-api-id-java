@@ -29,6 +29,7 @@
 | TRADES_READ | &quot;trades:read&quot; |
 | TRADES_EXECUTE | &quot;trades:execute&quot; |
 | TRANSFERS_READ | &quot;transfers:read&quot; |
+| TRANSFERS_WRITE | &quot;transfers:write&quot; |
 | TRANSFERS_EXECUTE | &quot;transfers:execute&quot; |
 | EXTERNAL_BANK_ACCOUNTS_READ | &quot;external_bank_accounts:read&quot; |
 | EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
