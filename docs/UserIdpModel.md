@@ -32,9 +32,11 @@
 | ACCOUNTS_READ | &quot;accounts:read&quot; |
 | ACCOUNTS_EXECUTE | &quot;accounts:execute&quot; |
 | COUNTERPARTIES_READ | &quot;counterparties:read&quot; |
+| COUNTERPARTIES_PII_READ | &quot;counterparties:pii:read&quot; |
 | COUNTERPARTIES_WRITE | &quot;counterparties:write&quot; |
 | COUNTERPARTIES_EXECUTE | &quot;counterparties:execute&quot; |
 | CUSTOMERS_READ | &quot;customers:read&quot; |
+| CUSTOMERS_PII_READ | &quot;customers:pii:read&quot; |
 | CUSTOMERS_WRITE | &quot;customers:write&quot; |
 | CUSTOMERS_EXECUTE | &quot;customers:execute&quot; |
 | PRICES_READ | &quot;prices:read&quot; |
@@ -46,6 +48,7 @@
 | TRANSFERS_READ | &quot;transfers:read&quot; |
 | TRANSFERS_WRITE | &quot;transfers:write&quot; |
 | EXTERNAL_BANK_ACCOUNTS_READ | &quot;external_bank_accounts:read&quot; |
+| EXTERNAL_BANK_ACCOUNTS_PII_READ | &quot;external_bank_accounts:pii:read&quot; |
 | EXTERNAL_BANK_ACCOUNTS_WRITE | &quot;external_bank_accounts:write&quot; |
 | EXTERNAL_BANK_ACCOUNTS_EXECUTE | &quot;external_bank_accounts:execute&quot; |
 | EXTERNAL_WALLETS_READ | &quot;external_wallets:read&quot; |
@@ -65,9 +68,11 @@
 | SUBSCRIPTION_EVENTS_READ | &quot;subscription_events:read&quot; |
 | SUBSCRIPTION_EVENTS_EXECUTE | &quot;subscription_events:execute&quot; |
 | IDENTITY_VERIFICATIONS_READ | &quot;identity_verifications:read&quot; |
+| IDENTITY_VERIFICATIONS_PII_READ | &quot;identity_verifications:pii:read&quot; |
 | IDENTITY_VERIFICATIONS_WRITE | &quot;identity_verifications:write&quot; |
 | IDENTITY_VERIFICATIONS_EXECUTE | &quot;identity_verifications:execute&quot; |
 | FILES_READ | &quot;files:read&quot; |
+| FILES_PII_READ | &quot;files:pii:read&quot; |
 | FILES_EXECUTE | &quot;files:execute&quot; |
 | OPENID | &quot;openid&quot; |
 | PROFILE | &quot;profile&quot; |
