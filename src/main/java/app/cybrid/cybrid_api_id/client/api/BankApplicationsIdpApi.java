@@ -28,7 +28,7 @@ import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-06T15:33:52.223228Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-06T16:20:56.549898Z[Etc/UTC]")
 public class BankApplicationsIdpApi {
     private ApiClient apiClient;
 
