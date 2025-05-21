@@ -215,7 +215,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.cybrid.xyz/tos
   title: Cybrid Identity API
-  version: v0.123.505
+  version: v0.123.506
 servers:
 - description: Sandbox environment is for public use and uses simulated money movement
   url: https://id.sandbox.cybrid.app
@@ -1104,9 +1104,11 @@ components:
           items:
             enum:
             - counterparties:read
+            - counterparties:pii:read
             - counterparties:write
             - counterparties:execute
             - customers:read
+            - customers:pii:read
             - customers:write
             - accounts:read
             - accounts:execute
@@ -1119,6 +1121,7 @@ components:
             - transfers:write
             - transfers:execute
             - external_bank_accounts:read
+            - external_bank_accounts:pii:read
             - external_bank_accounts:write
             - external_bank_accounts:execute
             - external_wallets:read
@@ -1133,6 +1136,7 @@ components:
             - invoices:write
             - invoices:execute
             - identity_verifications:read
+            - identity_verifications:pii:read
             - identity_verifications:write
             - identity_verifications:execute
             type: string
