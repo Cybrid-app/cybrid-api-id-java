@@ -56,6 +56,7 @@
 | ORGANIZATION_APPLICATIONS_EXECUTE | &quot;organization_applications:execute&quot; |
 | ORGANIZATIONS_READ | &quot;organizations:read&quot; |
 | ORGANIZATIONS_WRITE | &quot;organizations:write&quot; |
+| PERSONA_SESSIONS_EXECUTE | &quot;persona_sessions:execute&quot; |
 | PRICES_READ | &quot;prices:read&quot; |
 | QUOTES_EXECUTE | &quot;quotes:execute&quot; |
 | QUOTES_READ | &quot;quotes:read&quot; |

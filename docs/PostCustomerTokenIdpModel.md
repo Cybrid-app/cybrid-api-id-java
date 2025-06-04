@@ -52,6 +52,7 @@
 | IDENTITY_VERIFICATIONS_PII_READ | &quot;identity_verifications:pii:read&quot; |
 | IDENTITY_VERIFICATIONS_WRITE | &quot;identity_verifications:write&quot; |
 | IDENTITY_VERIFICATIONS_EXECUTE | &quot;identity_verifications:execute&quot; |
+| PERSONA_SESSIONS_EXECUTE | &quot;persona_sessions:execute&quot; |
 
 
 
