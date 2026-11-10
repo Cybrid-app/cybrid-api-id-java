@@ -1,3 +1,16 @@
+> [!WARNING]
+> **This client is deprecated and no longer maintained.** It hasn't been published since mid-2025 and won't get further releases or security fixes. This repository will be archived.
+>
+> Use one of the supported Cybrid API clients instead:
+>
+> - Python: [`cybrid-api-id-python`](https://pypi.org/project/cybrid-api-id-python/)
+> - Ruby: [`cybrid_api_id_ruby`](https://rubygems.org/gems/cybrid_api_id_ruby)
+> - TypeScript: [`@cybrid/cybrid-api-id-typescript`](https://www.npmjs.com/package/@cybrid/cybrid-api-id-typescript)
+> - Angular: [`@cybrid/cybrid-api-id-angular`](https://www.npmjs.com/package/@cybrid/cybrid-api-id-angular)
+> - Swift: [`CybridApiIdpSwift`](https://github.com/Cybrid-app/cybrid-api-id-swift)
+>
+> API reference: https://docs.cybrid.xyz
+
 # cybrid-api-id-java
 
 Cybrid Identity API
